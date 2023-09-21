@@ -1,22 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ITCompanysCRM.ClassFolder
 {
-    static class md5
+    class HashClass
     {
-        static string HashPassword(string password)
+        /// <summary>
+        /// Метод для хэширования пароля в MD5 алгоритм
+        /// </summary>
+        /// <param name="password">Пароль</param>
+        /// <returns>захэшированный пароль</returns>
+        public static string HashPassword(string password)
         {
             MD5 md5 = MD5.Create();
             byte[] b = Encoding.ASCII.GetBytes(password);
             byte[] hash = md5.ComputeHash(b);
 
             StringBuilder sb = new StringBuilder();
-            foreach(var a in hash)
+            foreach (var a in hash)
             {
                 sb.Append(a.ToString("X2"));
             }
