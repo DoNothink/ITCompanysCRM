@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="PageFolder\" />
-    <Folder Include="ResourceFolder\ImageFolder\" />
+    <Compile Remove="Model\**" />
+    <Compile Remove="PageFolder\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <EmbeddedResource Remove="PageFolder\**" />
+    <None Remove="Model\**" />
+    <None Remove="PageFolder\**" />
+    <Page Remove="Model\**" />
+    <Page Remove="PageFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ResourceFolder\ImageFolder\auth_bg.png" />
+    <None Remove="ResourceFolder\ImageFolder\auth_bgV2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +42,15 @@
     <Reference Include="WpfClasses">
       <HintPath>..\..\..\Курсовая работа\KursovayaBayramov\KursovayaBayramov\LibrariesFolder\WpfClasses.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\auth_bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ResourceFolder\ImageFolder\auth_bgV2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

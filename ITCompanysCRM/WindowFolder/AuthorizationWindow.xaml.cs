@@ -23,5 +23,10 @@ namespace ITCompanysCRM.WindowFolder
         {
             InitializeComponent();
         }
+
+        private void LogInBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

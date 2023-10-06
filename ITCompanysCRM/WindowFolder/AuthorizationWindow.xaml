@@ -5,9 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder"
         mc:Ignorable="d"
-        Title="AuthorizationWindow"
-        Height="450" Width="800">
+        Title="Окно авторизации"
+        Height="516" Width="846"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="421"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--BG-->
+        <Image Grid.ColumnSpan="3"
+            Height="516" Width="846"
+            Source="/ResourceFolder/ImageFolder/auth_bgV2.png"/>
+        
+        <!--main-->
+        <Grid Grid.Column="1">
+            <Border Width="401" Height="385" 
+                Background="White">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="1">
+                        Авторизация
+                    </Label>
+                    <TextBox x:Name="LoginTB"
+                             Grid.Row="1" Grid.Column="1"/>
+                    <PasswordBox x:Name="PasswordPB"
+                                 Grid.Row="2" Grid.Column="1"/>
+                    <StackPanel Orientation="Horizontal"
+                        Grid.Row="3" Grid.Column="1">
+                        <CheckBox x:Name="RememberMeCB"/>
+                        <Label>
+                            Запомнить меня?
+                        </Label>
+                    </StackPanel>
+                    <Button x:Name="LogInBtn"
+                            Content="Войти"
+                            Grid.Row="4" Grid.Column="1"
+                            Click="LogInBtn_Click"/>
+                    <StackPanel Grid.Row="5" Grid.Column="1">
+                        <Label>
+                            Забыли пароль?
+                        </Label>
+                        <Rectangle/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
         
     </Grid>
 </Window>
