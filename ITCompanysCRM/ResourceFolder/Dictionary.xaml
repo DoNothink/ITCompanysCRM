@@ -11,4 +11,57 @@
     </ResourceDictionary.MergedDictionaries>
     <!--Material Design-->
 
+    
+    <Style TargetType="TextBox"
+           BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="PasswordBox"
+           BasedOn="{StaticResource MaterialDesignOutlinedPasswordBox}">
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelAuthLogo">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontFamily" Value="Inter"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelAuth"
+           BasedOn="{StaticResource LabelAuthLogo}">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelForgotAuth"
+           BasedOn="{StaticResource LabelAuth}">
+        <Setter Property="FontWeight" Value="Regular"/>
+    </Style>
+    
+    <Style TargetType="Button"
+           BasedOn="{StaticResource MaterialDesignOutlinedButton}">
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Background" Value="#1A1EB2"/>
+        <Setter Property="BorderBrush" Value="#1A1EB2"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    
 </ResourceDictionary>

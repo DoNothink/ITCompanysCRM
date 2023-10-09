@@ -24,8 +24,9 @@
         
         <!--main-->
         <Grid Grid.Column="1">
-            <Border Width="401" Height="385" 
-                Background="White">
+            <Border Width="350" Height="385" 
+                Background="White"
+                    CornerRadius="5">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -41,7 +42,10 @@
                         <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Column="1">
+                    <Label Grid.Column="1"
+                           Style="{DynamicResource LabelAuthLogo}"
+                           VerticalAlignment="Bottom"
+                           Width="255">
                         Авторизация
                     </Label>
                     <TextBox x:Name="LoginTB"
@@ -49,9 +53,18 @@
                     <PasswordBox x:Name="PasswordPB"
                                  Grid.Row="2" Grid.Column="1"/>
                     <StackPanel Orientation="Horizontal"
-                        Grid.Row="3" Grid.Column="1">
-                        <CheckBox x:Name="RememberMeCB"/>
-                        <Label>
+                        Grid.Row="3" Grid.Column="1"
+                                Width="260"
+                                VerticalAlignment="Top">
+                        <CheckBox x:Name="RememberMeCB"
+                                  Width="15" Height="15"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        <Label
+                            Style="{DynamicResource LabelAuth}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="5">
                             Запомнить меня?
                         </Label>
                     </StackPanel>
@@ -59,11 +72,17 @@
                             Content="Войти"
                             Grid.Row="4" Grid.Column="1"
                             Click="LogInBtn_Click"/>
-                    <StackPanel Grid.Row="5" Grid.Column="1">
-                        <Label>
+                    <StackPanel Grid.Row="5" Grid.Column="1"
+                                Margin="30,0">
+                        <Label Width="144"
+                               HorizontalAlignment="Left"
+                            Style="{DynamicResource LabelForgotAuth}">
                             Забыли пароль?
                         </Label>
-                        <Rectangle/>
+                        <Rectangle Fill="Black"
+                                   Opacity="0.3"
+                                   Width="105"
+                                   HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Grid>
             </Border>
