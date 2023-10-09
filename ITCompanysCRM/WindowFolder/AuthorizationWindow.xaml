@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder"
         mc:Ignorable="d"
         Title="Окно авторизации"
@@ -20,13 +21,22 @@
         <!--BG-->
         <Image Grid.ColumnSpan="3"
             Height="516" Width="846"
-            Source="/ResourceFolder/ImageFolder/auth_bgV2.png"/>
+            Source="/ResourceFolder/ImageFolder/auth_bgV2.png">
+            <Image.Effect>
+                <BlurEffect Radius="2"/>
+            </Image.Effect>
+        </Image>
         
         <!--main-->
         <Grid Grid.Column="1">
             <Border Width="350" Height="385" 
                 Background="White"
                     CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"
+                                      Opacity="1"
+                                      BlurRadius="20"/>
+                </Border.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -49,15 +59,17 @@
                         Авторизация
                     </Label>
                     <TextBox x:Name="LoginTB"
-                             Grid.Row="1" Grid.Column="1"/>
+                             Grid.Row="1" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Логин"/>
                     <PasswordBox x:Name="PasswordPB"
-                                 Grid.Row="2" Grid.Column="1"/>
+                                 Grid.Row="2" Grid.Column="1"
+                                 materialDesign:HintAssist.Hint="Пароль"/>
                     <StackPanel Orientation="Horizontal"
                         Grid.Row="3" Grid.Column="1"
                                 Width="260"
                                 VerticalAlignment="Top">
                         <CheckBox x:Name="RememberMeCB"
-                                  Width="15" Height="15"
+                                  
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
                         <Label
@@ -74,14 +86,16 @@
                             Click="LogInBtn_Click"/>
                     <StackPanel Grid.Row="5" Grid.Column="1"
                                 Margin="30,0">
-                        <Label Width="144"
+                        <Label Width="115"
                                HorizontalAlignment="Left"
                             Style="{DynamicResource LabelForgotAuth}">
                             Забыли пароль?
                         </Label>
                         <Rectangle Fill="Black"
-                                   Opacity="0.3"
-                                   Width="105"
+                                   Margin="5,-8,0,0"
+                                   Opacity="1"
+                                   Height="1"
+                                   Width="103"
                                    HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Grid>
