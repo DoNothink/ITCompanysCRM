@@ -51,9 +51,18 @@
            BasedOn="{StaticResource LabelAuth}">
         <Setter Property="FontWeight" Value="Regular"/>
     </Style>
-    
+
+    <Style x:Key="CustomMaterialDesignOutlinedButton" 
+        BasedOn="{StaticResource MaterialDesignOutlinedButton}"
+        TargetType="{x:Type Button}">
+        <Style.Resources>
+            <Color x:Key="PrimaryHueMidBrushColor">Blue</Color>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Blue" />
+        </Style.Resources>
+    </Style>
+
     <Style TargetType="Button"
-           BasedOn="{StaticResource MaterialDesignOutlinedButton}">
+           BasedOn="{StaticResource CustomMaterialDesignOutlinedButton}">
         <Setter Property="Width" Value="260"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="Background" Value="#1A1EB2"/>
@@ -64,5 +73,4 @@
         <Setter Property="Padding" Value="0"/>
     </Style>
 
-    
 </ResourceDictionary>

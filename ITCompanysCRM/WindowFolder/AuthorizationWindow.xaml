@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder"
         mc:Ignorable="d"
         Title="Окно авторизации"
-        Height="516" Width="846"
+        Height="520" Width="850"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent">
@@ -23,7 +23,7 @@
             Height="516" Width="846"
             Source="/ResourceFolder/ImageFolder/auth_bgV2.png">
             <Image.Effect>
-                <BlurEffect Radius="2"/>
+                <BlurEffect Radius="0"/>
             </Image.Effect>
         </Image>
         
@@ -35,7 +35,7 @@
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="0"
                                       Opacity="1"
-                                      BlurRadius="20"/>
+                                      BlurRadius="30"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -60,18 +60,27 @@
                     </Label>
                     <TextBox x:Name="LoginTB"
                              Grid.Row="1" Grid.Column="1"
-                             materialDesign:HintAssist.Hint="Логин"/>
+                             BorderBrush="#1A1EB2"
+                             materialDesign:HintAssist.Hint="Логин"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Blue"
+                             materialDesign:HintAssist.Foreground="Black"/>
+                    
                     <PasswordBox x:Name="PasswordPB"
                                  Grid.Row="2" Grid.Column="1"
-                                 materialDesign:HintAssist.Hint="Пароль"/>
+                                 BorderBrush="#1A1EB2"
+                                 materialDesign:HintAssist.Hint="Пароль"
+                                 materialDesign:HintAssist.Foreground="Black"/>
+                    
                     <StackPanel Orientation="Horizontal"
                         Grid.Row="3" Grid.Column="1"
                                 Width="260"
                                 VerticalAlignment="Top">
                         <CheckBox x:Name="RememberMeCB"
-                                  
+                                  BorderBrush="#1A1EB2"
                                   HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
+                                  VerticalAlignment="Center"
+                                  materialDesign:CheckBoxAssist.CheckBoxSize="20"
+                                  Background="Blue"/>
                         <Label
                             Style="{DynamicResource LabelAuth}"
                             VerticalAlignment="Center"
@@ -83,7 +92,9 @@
                     <Button x:Name="LogInBtn"
                             Content="Войти"
                             Grid.Row="4" Grid.Column="1"
-                            Click="LogInBtn_Click"/>
+                            Click="LogInBtn_Click">
+                    </Button>
+                    
                     <StackPanel Grid.Row="5" Grid.Column="1"
                                 Margin="30,0">
                         <Label Width="115"
