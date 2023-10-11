@@ -23,7 +23,9 @@ namespace ITCompanysCRM.ClassFolder
                 sb.Append(a.ToString("X2"));
             }
 
+#pragma warning disable CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
             return Convert.ToString(sb);
+#pragma warning restore CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
         }
     }
 }

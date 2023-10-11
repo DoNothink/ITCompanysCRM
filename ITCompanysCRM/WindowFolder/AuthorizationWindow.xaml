@@ -97,9 +97,11 @@
                     
                     <StackPanel Grid.Row="5" Grid.Column="1"
                                 Margin="30,0">
-                        <Label Width="115"
+                        <Label x:Name="ForgotPassBtn"
+                               Width="115"
                                HorizontalAlignment="Left"
-                            Style="{DynamicResource LabelForgotAuth}">
+                            Style="{DynamicResource LabelForgotAuth}"
+                               MouseLeftButtonDown="ForgotPassBtn_MouseLeftButtonDown">
                             Забыли пароль?
                         </Label>
                         <Rectangle Fill="Black"
