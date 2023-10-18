@@ -63,13 +63,15 @@
                              BorderBrush="#1A1EB2"
                              materialDesign:HintAssist.Hint="Логин"
                              materialDesign:TextFieldAssist.UnderlineBrush="Blue"
-                             materialDesign:HintAssist.Foreground="Black"/>
+                             materialDesign:HintAssist.Foreground="Black"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"/>
                     
                     <PasswordBox x:Name="PasswordPB"
                                  Grid.Row="2" Grid.Column="1"
                                  BorderBrush="#1A1EB2"
                                  materialDesign:HintAssist.Hint="Пароль"
-                                 materialDesign:HintAssist.Foreground="Black"/>
+                                 materialDesign:HintAssist.Foreground="Black"
+                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="5"/>
                     
                     <StackPanel Orientation="Horizontal"
                         Grid.Row="3" Grid.Column="1"

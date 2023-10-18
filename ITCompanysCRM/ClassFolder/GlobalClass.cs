@@ -8,7 +8,14 @@ using System.Threading.Tasks;
 
 namespace ITCompanysCRM.ClassFolder
 {
-    internal class GlobalClass
+    internal static class GlobalClass
     {
+        private static User globalUser;
+
+        public static User GlobalUser
+        {
+            get { return globalUser; }
+            set { globalUser = value; }
+        }
     }
 }

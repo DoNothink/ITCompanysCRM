@@ -204,6 +204,11 @@ public partial class ItcompanysCrmdbContext : DbContext
                 .HasForeignKey(d => d.IdPost)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Post");
+
+            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Staff)
+                .HasForeignKey(d => d.IdUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Staff_User");
         });
 
         modelBuilder.Entity<StatusOfProject>(entity =>

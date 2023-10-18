@@ -1,4 +1,5 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using ITCompanysCRM.ClassFolder;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,7 @@ namespace ITCompanysCRM.WindowFolder
                     Properties.Settings.Default.Save();
                 }
                 MBClass.InfoMB("Успешный вход");
+                GlobalClass.GlobalUser = user;
             }
         }
 

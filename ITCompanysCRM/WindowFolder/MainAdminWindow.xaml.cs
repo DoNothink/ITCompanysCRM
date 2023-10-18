@@ -31,7 +31,7 @@ namespace ITCompanysCRM.WindowFolder
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new SettingsUserWindow().ShowDialog();
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
