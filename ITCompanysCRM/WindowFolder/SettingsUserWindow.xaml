@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder"
         mc:Ignorable="d"
         Title="Настройки пользователя"
-        Height="500" Width="450"
+        Height="350" Width="450"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -25,18 +26,34 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="1"
-               Content="Настройки пользователя"
+               Content="Изменение пароля"
                Style="{DynamicResource LabelAuthLogo}"
                FontSize="24"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
+            <PasswordBox x:Name="OldPassPB"
+                             Grid.Row="1" Grid.Column="1"
+                             BorderBrush="#1A1EB2"
+                             materialDesign:HintAssist.Hint="Старый пароль"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Blue"
+                             materialDesign:HintAssist.Foreground="Black"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"/>
+            <PasswordBox x:Name="NewPassPB"
+                             Grid.Row="1" Grid.Column="1"
+                             BorderBrush="#1A1EB2"
+                             materialDesign:HintAssist.Hint="Новый пароль"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Blue"
+                             materialDesign:HintAssist.Foreground="Black"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"/>
+            <PasswordBox x:Name="RepeatPassPB"
+                             Grid.Row="1" Grid.Column="1"
+                             BorderBrush="#1A1EB2"
+                             materialDesign:HintAssist.Hint="Повторите пароль"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Blue"
+                             materialDesign:HintAssist.Foreground="Black"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"/>
         </StackPanel>
         
         <Button x:Name="SaveBtn"

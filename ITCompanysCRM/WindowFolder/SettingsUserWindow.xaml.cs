@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITCompanysCRM.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,31 @@ namespace ITCompanysCRM.WindowFolder
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var _user = GlobalClass.GlobalUser;
+            if(_user!=null)
+            {
+                using (ItcompanysCrmdbContext db = new())
+                {
+                    User? currentUser = db.Users.FirstOrDefault(x => x.IdUser == _user.IdUser);
+                    if(currentUser!=null)
+                    {
+                        if(currentUser.PasswordUser!=OldPassPB.Password)
+                        {
+                            MBClass.ErrorMB("Введен неверный старый пароль");
+                            return;
+                        }
+                        if(NewPassPB.Password!=RepeatPassPB.Password)
+                        {
+                            MBClass.ErrorMB("Пароли не совпадают");
+                            return;
+                        }
+                        currentUser.PasswordUser = NewPassPB.Password;
+                        db.SaveChanges();
+                        MBClass.InfoMB("Новый пароль сохранен");
+                    }
+                }
+                this.Close();
+            }
         }
     }
 }
