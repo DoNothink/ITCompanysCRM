@@ -48,6 +48,11 @@
                             Content="Список пользователей"
                             BorderBrush="Transparent"
                             Click="ListOfUsersBtn_Click"/>
+                    <Button x:Name="AddUserBtn"
+                            Background="#1A69B2"
+                            Content="Добавить пользователя"
+                            BorderBrush="Transparent"
+                            Click="AddUserBtn_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

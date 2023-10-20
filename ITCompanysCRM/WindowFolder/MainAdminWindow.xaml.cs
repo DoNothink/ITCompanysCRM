@@ -40,5 +40,10 @@ namespace ITCompanysCRM.WindowFolder
             if (resultMB)
                 App.Current.Shutdown();
         }
+
+        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
