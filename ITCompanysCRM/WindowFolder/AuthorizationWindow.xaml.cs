@@ -67,6 +67,17 @@ namespace ITCompanysCRM.WindowFolder
                 }
                 MBClass.InfoMB("Успешный вход");
                 GlobalClass.GlobalUser = user;
+                switch(user.IdRole)
+                {
+                    case 1:
+                        new MainAdminWindow().Show();
+                        this.Close();
+                        break;
+                    case 2:
+
+                        break;
+
+                }
             }
         }
 
