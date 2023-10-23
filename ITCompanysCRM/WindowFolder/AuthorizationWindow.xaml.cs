@@ -29,8 +29,13 @@ namespace ITCompanysCRM.WindowFolder
         public AuthorizationWindow()
         {
             InitializeComponent();
-            LoginTB.Text = Properties.Settings.Default.LoginUser;
+            GetRememberMeState();
+        }
 
+        private void GetRememberMeState()
+        {
+            LoginTB.Text = Properties.Settings.Default.LoginUser;
+            RememberMeCB.IsChecked = Properties.Settings.Default.RememberMeState;
         }
 
         private void LogInBtn_Click(object sender, RoutedEventArgs e)
@@ -63,6 +68,13 @@ namespace ITCompanysCRM.WindowFolder
                 if(RememberMeCB.IsChecked==true)
                 {
                     Properties.Settings.Default.LoginUser = LoginTB.Text;
+                    Properties.Settings.Default.RememberMeState = true;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.LoginUser = null;
+                    Properties.Settings.Default.RememberMeState = false;
                     Properties.Settings.Default.Save();
                 }
                 MBClass.InfoMB("Успешный вход");
