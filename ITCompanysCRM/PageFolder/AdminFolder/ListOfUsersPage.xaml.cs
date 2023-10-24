@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfClasses;
 
 namespace ITCompanysCRM.PageFolder.AdminFolder
 {
@@ -20,10 +21,13 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
     /// </summary>
     public partial class ListOfUsersPage : Page
     {
+        // TODO: Нужно сделать полную загрузку данных, фильтрацию, создание, удаление и редактирование пользователя
+
         public ListOfUsersPage()
         {
             InitializeComponent();
             LoadDG();
+            LoadCB();
         }
 
         private void LoadDG()
@@ -34,14 +38,30 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             }
         }
 
+        private void LoadCB()
+        {
+            using(ItcompanysCrmdbContext db = new())
+            {
+                PostCB.ItemsSource = db.Posts.ToList();
+            }
+        }
+
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SearchTB.Text = string.Empty;
+            PostCB.SelectedIndex = -1;
         }
 
         private void ExcelBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                ExcelClass.ToExcelFile(UsersDG, "Список пользователей");
+            }
+            catch (Exception)
+            {
+                MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+            }
         }
     }
 }

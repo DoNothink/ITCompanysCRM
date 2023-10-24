@@ -32,7 +32,10 @@
                              materialDesign:HintAssist.Hint="Поиск"/>
                     
                     <ComboBox x:Name="PostCB" Height="35"
-                              materialDesign:HintAssist.Hint="Должность"/>
+                              materialDesign:HintAssist.Hint="Должность"
+                              SelectedValuePath="IdPost"
+                              SelectedItem="{Binding Post}"
+                              DisplayMemberPath="NamePost"/>
                     
                     <Button x:Name="ResetBtn"
                             Content="Сброс"
