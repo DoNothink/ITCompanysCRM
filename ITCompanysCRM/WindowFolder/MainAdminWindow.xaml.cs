@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITCompanysCRM.PageFolder.AdminFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ITCompanysCRM.WindowFolder
 
         private void ListOfUsersBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListOfUsersPage());
         }
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)

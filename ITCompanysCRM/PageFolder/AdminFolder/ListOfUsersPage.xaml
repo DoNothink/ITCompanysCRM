@@ -4,16 +4,79 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ITCompanysCRM.PageFolder.AdminFolder"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfUsersPage">
 
     <Grid>
-        <DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FFFFFF">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal">
+                    <TextBox x:Name="SearchTB" Height="35"
+                             materialDesign:HintAssist.Hint="Поиск"/>
+                    
+                    <ComboBox x:Name="PostCB" Height="35"
+                              materialDesign:HintAssist.Hint="Должность"/>
+                    
+                    <Button x:Name="ResetBtn"
+                            Content="Сброс"
+                            Width="100"
+                            Click="ResetBtn_Click"/>
+
+                </StackPanel>
+
+                <Button x:Name="ExcelBtn" Grid.Row="1" Grid.Column="1"
+                        Width="130"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="ExcelBtn_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25" Height="25"
+                                Source="/ResourceFolder/ImageFolder/Excel_icon.png"/>
+                            <Label Content="Экспорт в Excel"
+                                   Style="{DynamicResource LabelForgotAuth}"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+            </Grid>
+        </Border>
+
+        <DataGrid x:Name="UsersDG"
+                  Grid.Row="1" AutoGenerateColumns="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№П/П"/>
-                <DataGridTextColumn Header="ФИО"/>
-                <DataGridTextColumn Header="Должность"/>
+                <DataGridTextColumn Header="№П/П"
+                                    Binding="{Binding IdStaff}"/>
+                <DataGridTextColumn Header="ФИО">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1} {2}">
+                            <Binding Path="SecondNameStaff"/>
+                            <Binding Path="FirstNameStaff"/>
+                            <Binding Path="MiddleNameStaff"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Должность"
+                                    Binding="{Binding NamePost}"/>
                 <DataGridTextColumn Header="Эл.почта"/>
                 <DataGridTextColumn Header="Номер телефона"/>
                 <DataGridTextColumn Header="Логин"/>

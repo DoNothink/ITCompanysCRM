@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="ResourceFolder\ImageFolder\auth_bg.png" />
     <None Remove="ResourceFolder\ImageFolder\auth_bgV2.png" />
+    <None Remove="ResourceFolder\ImageFolder\Excel_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +40,9 @@
     </Resource>
     <Resource Include="ResourceFolder\ImageFolder\auth_bgV2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ResourceFolder\ImageFolder\Excel_icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 

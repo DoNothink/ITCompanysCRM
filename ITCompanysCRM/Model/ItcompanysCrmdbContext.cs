@@ -45,7 +45,7 @@ public partial class ItcompanysCrmdbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=K218PC\\SQLEXPRESS;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-DNTHNK;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -192,22 +192,18 @@ public partial class ItcompanysCrmdbContext : DbContext
 
             entity.HasOne(d => d.IdAddressNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdAddress)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Address");
 
             entity.HasOne(d => d.IdPassportNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdPassport)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Passport");
 
             entity.HasOne(d => d.IdPostNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdPost)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Post");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdUser)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_User");
         });
 

@@ -57,7 +57,8 @@
             </Grid>
         </Border>
 
-        <Frame Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame"
+            Grid.Column="1" NavigationUIVisibility="Hidden"/>
         
         <Border Background="#1A69B2"
                 Width="310" Height="87"

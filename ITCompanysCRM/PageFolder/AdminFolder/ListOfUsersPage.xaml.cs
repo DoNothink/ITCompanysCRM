@@ -23,6 +23,25 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         public ListOfUsersPage()
         {
             InitializeComponent();
+            LoadDG();
+        }
+
+        private void LoadDG()
+        {
+            using (ItcompanysCrmdbContext db = new())
+            {
+                UsersDG.ItemsSource = db.Staff.ToList();
+            }
+        }
+
+        private void ResetBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExcelBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
