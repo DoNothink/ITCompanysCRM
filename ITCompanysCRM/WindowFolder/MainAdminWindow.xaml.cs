@@ -38,7 +38,10 @@ namespace ITCompanysCRM.WindowFolder
         {
             bool resultMB = MBClass.QuestionMB("Вы действительно хотите выйти?");
             if (resultMB)
-                App.Current.Shutdown();
+            {
+                new AuthorizationWindow().Show();
+                this.Close();
+            }
         }
 
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)

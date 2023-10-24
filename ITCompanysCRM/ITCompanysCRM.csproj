@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="PageFolder\**" />
-    <EmbeddedResource Remove="PageFolder\**" />
-    <None Remove="PageFolder\**" />
-    <Page Remove="PageFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="ResourceFolder\ImageFolder\auth_bg.png" />
     <None Remove="ResourceFolder\ImageFolder\auth_bgV2.png" />
   </ItemGroup>
