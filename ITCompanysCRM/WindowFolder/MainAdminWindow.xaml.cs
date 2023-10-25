@@ -34,7 +34,7 @@ namespace ITCompanysCRM.WindowFolder
         {
             new SettingsUserWindow().ShowDialog();
         }
-
+        
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             bool resultMB = MBClass.QuestionMB("Вы действительно хотите выйти?");
