@@ -79,10 +79,13 @@
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Должность"
-                                    Binding="{Binding NamePost}"/>
-                <DataGridTextColumn Header="Эл.почта"/>
-                <DataGridTextColumn Header="Номер телефона"/>
-                <DataGridTextColumn Header="Логин"/>
+                                    Binding="{Binding IdPostNavigation.NamePost}"/>
+                <DataGridTextColumn Header="Эл.почта"
+                                    Binding="{Binding EmailStaff}"/>
+                <DataGridTextColumn Header="Номер телефона"
+                                    Binding="{Binding PhoneNumberStaff}"/>
+                <DataGridTextColumn Header="Логин"
+                                    Binding="{Binding IdUserNavigation.LoginUser}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

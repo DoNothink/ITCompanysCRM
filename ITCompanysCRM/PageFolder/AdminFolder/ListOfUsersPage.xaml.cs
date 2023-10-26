@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,8 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             using (ItcompanysCrmdbContext db = new())
             {
                 UsersDG.ItemsSource = db.Staff.ToList();
+                db.Users.Load();
+                db.Posts.Load();
             }
         }
 

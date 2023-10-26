@@ -25,7 +25,7 @@ public partial class ItcompanysCrmdbContext : DbContext
 
     public virtual DbSet<DevTeam> DevTeams { get; set; }
 
-    public virtual DbSet<Passport> Passports { get; set; }
+    public virtual DbSet<IssuedPassport> IssuedPassports { get; set; }
 
     public virtual DbSet<Post> Posts { get; set; }
 
@@ -45,7 +45,7 @@ public partial class ItcompanysCrmdbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-DNTHNK;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Data Source=K218PC\\SQLEXPRESS;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -130,14 +130,15 @@ public partial class ItcompanysCrmdbContext : DbContext
                 .HasConstraintName("FK_DevTeam_Staff");
         });
 
-        modelBuilder.Entity<Passport>(entity =>
+        modelBuilder.Entity<IssuedPassport>(entity =>
         {
-            entity.HasKey(e => e.IdPassport);
+            entity.HasKey(e => e.IdIssuedPassport).HasName("PK_Passport");
 
-            entity.ToTable("Passport");
+            entity.ToTable("IssuedPassport");
 
-            entity.Property(e => e.DateOfIssuedPassport).HasColumnType("date");
-            entity.Property(e => e.IssuedPassport).HasMaxLength(100);
+            entity.Property(e => e.IssuedPassport1)
+                .HasMaxLength(100)
+                .HasColumnName("IssuedPassport");
         });
 
         modelBuilder.Entity<Post>(entity =>
@@ -183,6 +184,7 @@ public partial class ItcompanysCrmdbContext : DbContext
             entity.HasKey(e => e.IdStaff);
 
             entity.Property(e => e.DateOfBirthStaff).HasColumnType("date");
+            entity.Property(e => e.DateOfIssuedPassport).HasColumnType("date");
             entity.Property(e => e.EmailStaff).HasMaxLength(50);
             entity.Property(e => e.FirstNameStaff).HasMaxLength(50);
             entity.Property(e => e.MiddleNameStaff).HasMaxLength(50);
@@ -192,18 +194,22 @@ public partial class ItcompanysCrmdbContext : DbContext
 
             entity.HasOne(d => d.IdAddressNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdAddress)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Address");
 
-            entity.HasOne(d => d.IdPassportNavigation).WithMany(p => p.Staff)
-                .HasForeignKey(d => d.IdPassport)
-                .HasConstraintName("FK_Staff_Passport");
+            entity.HasOne(d => d.IdIssuedPassportNavigation).WithMany(p => p.Staff)
+                .HasForeignKey(d => d.IdIssuedPassport)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Staff_IssuedPassport");
 
             entity.HasOne(d => d.IdPostNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdPost)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_Post");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.IdUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Staff_User");
         });
 
