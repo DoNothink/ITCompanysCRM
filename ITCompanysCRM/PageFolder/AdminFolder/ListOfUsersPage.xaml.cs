@@ -79,8 +79,9 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                         using (ItcompanysCrmdbContext db = new())
                         {
                             db.Staff.Remove(_selectedStaff);
-                            db.SaveChangesAsync();
+                            db.SaveChanges();
                             MBClass.InfoMB("Пользователь удален");
+                            LoadDG();
                         }
                     }
                 }
