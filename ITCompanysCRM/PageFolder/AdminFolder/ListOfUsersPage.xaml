@@ -28,6 +28,11 @@
 
                 <StackPanel Grid.Row="1"
                             Orientation="Horizontal">
+                    <Button x:Name="AddUserBtn"
+                            Content="+"
+                            Width="35"
+                            Click="AddUserBtn_Click"/>
+                    
                     <TextBox x:Name="SearchTB" Height="35"
                              materialDesign:HintAssist.Hint="Поиск"/>
                     
@@ -66,6 +71,16 @@
         <DataGrid x:Name="UsersDG"
                   Grid.Row="1" AutoGenerateColumns="False"
                   IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="EditUserMi"
+                              Header="Изменить данные"
+                              Click="EditUserMi_Click"/>
+                    <MenuItem x:Name="DeleteUserMi"
+                              Header="Удалить пользователя"
+                              Click="DeleteUserMi_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№П/П"
                                     Binding="{Binding IdStaff}"/>

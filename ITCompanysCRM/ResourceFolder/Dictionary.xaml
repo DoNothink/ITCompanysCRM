@@ -71,6 +71,7 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="10"/>
     </Style>
 
     <Style TargetType="ComboBox"

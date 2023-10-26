@@ -22,8 +22,6 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
     /// </summary>
     public partial class ListOfUsersPage : Page
     {
-        // TODO: Нужно сделать полную загрузку данных, фильтрацию, создание, удаление и редактирование пользователя
-
         public ListOfUsersPage()
         {
             InitializeComponent();
@@ -65,6 +63,42 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             {
                 MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
             }
+        }
+
+        private void DeleteUserMi_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
+                if (_selectedStaff != null)
+                {
+                    bool resultMB = MBClass.QuestionMB($"Вы действительно хотите " +
+                        $"удалить пользователя {_selectedStaff.SecondNameStaff} {_selectedStaff.FirstNameStaff}?");
+                    if(resultMB)
+                    {
+                        using (ItcompanysCrmdbContext db = new())
+                        {
+                            db.Staff.Remove(_selectedStaff);
+                            db.SaveChangesAsync();
+                            MBClass.InfoMB("Пользователь удален");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+            }
+        }
+
+        private void EditUserMi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
