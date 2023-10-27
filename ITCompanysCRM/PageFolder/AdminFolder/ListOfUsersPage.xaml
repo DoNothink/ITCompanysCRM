@@ -29,18 +29,20 @@
                 <StackPanel Grid.Row="1"
                             Orientation="Horizontal">
                     <Button x:Name="AddUserBtn"
-                            Content="+"
+                            Content="+" Margin="10"
                             Width="35"
                             Click="AddUserBtn_Click"/>
                     
                     <TextBox x:Name="SearchTB" Height="35"
-                             materialDesign:HintAssist.Hint="Поиск"/>
+                             materialDesign:HintAssist.Hint="Поиск"
+                             TextChanged="SearchTB_TextChanged"/>
                     
                     <ComboBox x:Name="PostCB" Height="35"
                               materialDesign:HintAssist.Hint="Должность"
                               SelectedValuePath="IdPost"
                               SelectedItem="{Binding Post}"
-                              DisplayMemberPath="NamePost"/>
+                              DisplayMemberPath="NamePost"
+                              SelectionChanged="PostCB_SelectionChanged"/>
                     
                     <Button x:Name="ResetBtn"
                             Content="Сброс"

@@ -15,5 +15,7 @@ public partial class User
 
     public virtual Role IdRoleNavigation { get; set; } = null!;
 
+    public virtual ICollection<LogBook> LogBooks { get; set; } = new List<LogBook>();
+
     public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
 }

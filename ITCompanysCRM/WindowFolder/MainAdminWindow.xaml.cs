@@ -1,4 +1,5 @@
-﻿using ITCompanysCRM.PageFolder.AdminFolder;
+﻿using ITCompanysCRM.ClassFolder;
+using ITCompanysCRM.PageFolder.AdminFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,24 @@ namespace ITCompanysCRM.WindowFolder
         public MainAdminWindow()
         {
             InitializeComponent();
+            FioLabel.Content = GetFio();
+        }
+
+        private string GetFio()
+        {
+            using (ItcompanysCrmdbContext db = new())
+            {
+                Staff? currentStaff = db.Staff.FirstOrDefault(x => x.IdUser == GlobalClass.GlobalUser.IdUser);
+                if(currentStaff == null)
+                {
+                    MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+                    new AuthorizationWindow().Show();
+                    this.Close();
+                }
+
+                string fio = $"{currentStaff.SecondNameStaff} {currentStaff.FirstNameStaff}";
+                return fio;
+            }
         }
 
         private void ListOfUsersBtn_Click(object sender, RoutedEventArgs e)
@@ -46,6 +65,11 @@ namespace ITCompanysCRM.WindowFolder
         }
 
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogBookBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

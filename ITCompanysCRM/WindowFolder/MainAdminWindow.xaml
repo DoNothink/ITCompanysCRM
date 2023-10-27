@@ -44,15 +44,16 @@
 
                 <StackPanel Grid.Row="2">
                     <Button x:Name="ListOfUsersBtn"
-                            Background="#1A69B2"
+                            Background="#1A69B2" Margin="0"
                             Content="Список пользователей"
                             BorderBrush="Transparent"
                             Click="ListOfUsersBtn_Click"/>
-                    <Button x:Name="AddUserBtn"
-                            Background="#1A69B2"
-                            Content="Добавить пользователя"
+                    
+                    <Button x:Name="LogBookBtn"
+                            Background="#1A69B2" Margin="0"
+                            Content="Журнал событий"
                             BorderBrush="Transparent"
-                            Click="AddUserBtn_Click"/>
+                            Click="LogBookBtn_Click"/> 
                 </StackPanel>
             </Grid>
         </Border>
@@ -91,7 +92,6 @@
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Left"/>
                 <Label x:Name="FioLabel"
-                       Content="Байрамов Р.Ф"
                        Grid.Row="1" Grid.Column="1"
                        Style="{DynamicResource LabelAuth}"
                        FontWeight="Normal"
