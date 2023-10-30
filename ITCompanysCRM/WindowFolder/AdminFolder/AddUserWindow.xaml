@@ -4,9 +4,100 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder.AdminFolder"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="450" Width="800">
+        Title="Добавить пользователя"
+        Height="720" Width="900"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        BorderBrush="#1A69B2"
+        BorderThickness="1">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition/>
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FFFFFF"
+                        Grid.Row="1">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                      Direction="180"
+                                      Opacity="1"
+                                      BlurRadius="30"/>
+            </Border.Effect>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBox x:Name="LoginTB" Height="35"
+                             materialDesign:HintAssist.Hint="Логин"/>
+                <TextBox x:Name="PasswordTB" Height="35"
+                             materialDesign:HintAssist.Hint="Пароль"/>
+                <ComboBox x:Name="RoleCB" Height="35"
+                              materialDesign:HintAssist.Hint="Роль"
+                              SelectedValuePath="IdRole"
+                              SelectedItem="{Binding Role}"
+                              DisplayMemberPath="NameRole"/>
+            </StackPanel>
+            
+        </Border>
+
+        <Border Background="#1A69B2">
+            <Label Grid.Column="1"
+               Content="Добавление пользователя"
+               Foreground="White"
+               Style="{DynamicResource LabelAuthLogo}"
+               FontSize="24"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="SecondNameTB" Height="35"
+                             materialDesign:HintAssist.Hint="Фамилия*"/>
+            <TextBox x:Name="FirstNameTB" Height="35" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Имя*"/>
+            <TextBox x:Name="MiddleNameTB" Height="35" Grid.Column="2"
+                             materialDesign:HintAssist.Hint="Отчество"/>
+
+            <TextBox x:Name="SeriesPassportTB" Height="35" Grid.Row="1"
+                             materialDesign:HintAssist.Hint="Серия паспорта*"/>
+            <TextBox x:Name="NumberPassportTB" Height="35" Grid.Row="1" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Номер паспорта*"/>
+            <StackPanel Grid.Row="1" Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <ComboBox x:Name="IssuedPassCB" Height="35" Width="225"
+                              materialDesign:HintAssist.Hint="Кем выдан паспорт"
+                              SelectedValuePath="IdIssuedPassport"
+                              SelectedItem="{Binding IssuedPassport}"
+                              DisplayMemberPath="IssuedPassport"/>
+                <Button x:Name="AddIssuedBtn"
+                            Content="+"
+                            Width="35"/>
+            </StackPanel>
+            
+            
+            
+        </Grid>
+
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using ITCompanysCRM.ClassFolder;
+using ITCompanysCRM.WindowFolder.AdminFolder;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -84,7 +85,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                             db.SaveChanges();
                             MBClass.InfoMB("Пользователь удален");
                             LoadDG();
-                            LogClass.LogToDataBase($"Пользователь {_selectedStaff.IdUser} удален");
+                            LogClass.LogToDataBase($"Пользователь Id:{_selectedStaff.IdUser} удален");
                         }
                     }
                 }
@@ -106,7 +107,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         // TODO: AddUser
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new AddUserWindow().ShowDialog();
         }
 
 

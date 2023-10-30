@@ -78,7 +78,6 @@
            BasedOn="{StaticResource MaterialDesignOutlinedComboBox}">
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="BorderBrush" Value="#1A1EB2"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Padding" Value="10,0"/>
