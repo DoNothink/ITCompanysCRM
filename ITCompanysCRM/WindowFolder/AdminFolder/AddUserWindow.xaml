@@ -94,9 +94,11 @@
                             Content="+"
                             Width="35"/>
             </StackPanel>
-            
-            
-            
+
+            <DatePicker x:Name="DateOfBirthDP"
+                        Grid.Row="2"/>
+
+
         </Grid>
 
     </Grid>

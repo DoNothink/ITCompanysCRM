@@ -82,5 +82,20 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Padding" Value="10,0"/>
     </Style>
-    
+
+    <Style TargetType="DatePicker"
+           BasedOn="{StaticResource MaterialDesignOutlinedDatePicker}">
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="-230,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+    <Style TargetType="DatePickerTextBox"
+           BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+        <Setter Property="Padding" Value="10,0"/>
+    </Style>
 </ResourceDictionary>
