@@ -32,19 +32,33 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             textBoxes = MainGrid.Children.OfType<TextBox>();            
         }
 
-
-        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Метод для проверки TextBox на заполненность
+        /// </summary>
+        /// <returns>True при успешной проверке.
+        /// False при безуспешной.</returns>
+        private bool CheckTextBoxes()
         {
-            foreach (var x in  textBoxes)
+            foreach (var x in textBoxes)
             {
-                
-                if(string.IsNullOrWhiteSpace(x.Text))
+                if (x.Name == "MiddleNameTB" || x.Name == "EmailTB" || x.Name == "OthersDataTB")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(x.Text))
                 {
                     MBClass.ErrorMB($"Заполните обязательное поле");
                     x.Focus();
-                    break;
+                    return false;
+                    
                 }
             }
+            return true;
+        }
+
+        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!CheckTextBoxes()) return;
+
             if(RoleCB.SelectedIndex == -1)
             {
                 MBClass.ErrorMB("Выберите роль пользователя");
@@ -63,7 +77,7 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                 AddressCB.Focus();
                 return;
             }
-            if(String.IsNullOrWhiteSpace(DateOfIssuedDP.Text))
+            if(string.IsNullOrWhiteSpace(DateOfIssuedDP.Text))
             {
                 MBClass.ErrorMB("Введите дату выдачи паспорта");
                 DateOfIssuedDP.Focus();
