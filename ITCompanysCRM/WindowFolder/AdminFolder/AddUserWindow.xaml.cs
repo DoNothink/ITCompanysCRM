@@ -55,6 +55,7 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             return true;
         }
 
+        // TODO: Добавление пользователя проверить
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!CheckTextBoxes()) return;
@@ -90,21 +91,63 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                 return;
             }
 
+            var newUser = new User()
+            {
+                LoginUser = LoginTB.Text,
+                PasswordUser = PasswordTB.Text,
+                IdRole = int.Parse(RoleCB.SelectedValue.ToString()),
+            };
+            var newStaff = new Staff()
+            {
+                SecondNameStaff = SecondNameTB.Text,
+                FirstNameStaff = FirstNameTB.Text,
+                MiddleNameStaff = MiddleNameTB.Text,
+                IdPost = int.Parse(PostCB.SelectedValue.ToString()),
+                DateOfBirthStaff = DateOfBirthDP.SelectedDate.Value,
+                IdAddress = int.Parse(AddressCB.SelectedValue.ToString()),
+                PhoneNumberStaff = PhoneNumberTB.Text,
+                EmailStaff = EmailTB.Text,
+                OthersData = OthersDataTB.Text,
+                SeriesPassport = int.Parse(SeriesPassTB.Text),
+                IdUser = newUser.IdUser,
+                NumberPassport = int.Parse(NumberPassTB.Text),
+                DateOfIssuedPassport = DateOfIssuedDP.SelectedDate.Value,
+                IdIssuedPassport = int.Parse(IssuedPassCB.SelectedValue.ToString()),
+            };
+            try
+            {
+                using (ItcompanysCrmdbContext db = new())
+                {
+                    db.Add(newUser);
+                    db.Add(newStaff);
+                    db.SaveChanges();
+                    MBClass.InfoMB("Пользователь успешно создан");
+                }
+            }
+            catch (Exception)
+            {
+                MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+                return;
+            }
         }
 
+        // TODO: Сделать окно добавления должности
         private void AddPostBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
+        // TODO: Сделать окно добавления адреса
         private void AddAddressBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // TODO: Сделать окно добавления Кем Выдан Паспорт
         private void AddIssuedPassBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
     }
 }
+
+// TODO: Реализовать ввод только цифр для нужных полей. Ввод номера телефона.
