@@ -43,7 +43,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
 
         private void LoadCB()
         {
-            using(ItcompanysCrmdbContext db = new())
+            using (ItcompanysCrmdbContext db = new())
             {
                 PostCB.ItemsSource = db.Posts.ToList();
             }
@@ -77,7 +77,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                 {
                     bool resultMB = MBClass.QuestionMB($"Вы действительно хотите " +
                         $"удалить пользователя {_selectedStaff.SecondNameStaff} {_selectedStaff.FirstNameStaff}?");
-                    if(resultMB)
+                    if (resultMB)
                     {
                         using (ItcompanysCrmdbContext db = new())
                         {
@@ -100,7 +100,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         private void EditUserMi_Click(object sender, RoutedEventArgs e)
         {
             Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
-            //if( _selectedStaff != null ) 
+            //if (_selectedStaff != null)
 
         }
 
@@ -116,7 +116,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             using (ItcompanysCrmdbContext db = new())
             {
                 UsersDG.ItemsSource = db.Staff
-                    .Where(x=>x.SecondNameStaff.StartsWith(SearchTB.Text) || x.FirstNameStaff.StartsWith(SearchTB.Text))
+                    .Where(x => x.SecondNameStaff.StartsWith(SearchTB.Text) || x.FirstNameStaff.StartsWith(SearchTB.Text))
                     .ToList();
                 db.Users.Load();
                 db.Posts.Load();

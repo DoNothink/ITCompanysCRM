@@ -32,7 +32,7 @@ namespace ITCompanysCRM.WindowFolder
             using (ItcompanysCrmdbContext db = new())
             {
                 Staff? currentStaff = db.Staff.FirstOrDefault(x => x.IdUser == GlobalClass.GlobalUser.IdUser);
-                if(currentStaff == null)
+                if (currentStaff == null)
                 {
                     MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
                     new AuthorizationWindow().Show();

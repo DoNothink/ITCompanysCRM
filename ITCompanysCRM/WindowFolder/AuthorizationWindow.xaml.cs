@@ -55,17 +55,17 @@ namespace ITCompanysCRM.WindowFolder
             using (ItcompanysCrmdbContext db = new())
             {
                 var user = db.Users.FirstOrDefault(x => x.LoginUser == LoginTB.Text);
-                if(user==null)
+                if (user == null)
                 {
                     MBClass.ErrorMB("Введен неверный логин или пароль");
                     return;
                 }
-                if(user.PasswordUser!=PasswordPB.Password)
+                if (user.PasswordUser != PasswordPB.Password)
                 {
                     MBClass.ErrorMB("Введен неверный логин или пароль");
                     return;
                 }
-                if(RememberMeCB.IsChecked==true)
+                if (RememberMeCB.IsChecked == true)
                 {
                     Properties.Settings.Default.LoginUser = LoginTB.Text;
                     Properties.Settings.Default.RememberMeState = true;
@@ -79,7 +79,7 @@ namespace ITCompanysCRM.WindowFolder
                 }
                 MBClass.InfoMB("Успешный вход");
                 GlobalClass.GlobalUser = user;
-                switch(user.IdRole)
+                switch (user.IdRole)
                 {
                     case 1:
                         new MainAdminWindow().Show();

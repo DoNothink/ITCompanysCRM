@@ -35,19 +35,19 @@ namespace ITCompanysCRM.WindowFolder
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             var _user = GlobalClass.GlobalUser;
-            if(_user!=null)
+            if (_user != null)
             {
                 using (ItcompanysCrmdbContext db = new())
                 {
                     User? currentUser = db.Users.FirstOrDefault(x => x.IdUser == _user.IdUser);
-                    if(currentUser!=null)
+                    if (currentUser != null)
                     {
-                        if(currentUser.PasswordUser!=OldPassPB.Password)
+                        if (currentUser.PasswordUser != OldPassPB.Password)
                         {
                             MBClass.ErrorMB("Введен неверный старый пароль");
                             return;
                         }
-                        if(NewPassPB.Password!=RepeatPassPB.Password)
+                        if (NewPassPB.Password != RepeatPassPB.Password)
                         {
                             MBClass.ErrorMB("Пароли не совпадают");
                             return;

@@ -17,6 +17,8 @@ public partial class ItcompanysCrmdbContext : DbContext
 
     public virtual DbSet<Address> Addresses { get; set; }
 
+    public virtual DbSet<AddressView> AddressViews { get; set; }
+
     public virtual DbSet<City> Cities { get; set; }
 
     public virtual DbSet<Client> Clients { get; set; }
@@ -24,6 +26,8 @@ public partial class ItcompanysCrmdbContext : DbContext
     public virtual DbSet<Country> Countries { get; set; }
 
     public virtual DbSet<DevTeam> DevTeams { get; set; }
+
+    public virtual DbSet<IssuedPassView> IssuedPassViews { get; set; }
 
     public virtual DbSet<IssuedPassport> IssuedPassports { get; set; }
 
@@ -47,7 +51,7 @@ public partial class ItcompanysCrmdbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-DNTHNK;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Data Source=K218PC\\SQLEXPRESS;Initial Catalog=ITCompanysCRMDB;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -73,6 +77,15 @@ public partial class ItcompanysCrmdbContext : DbContext
                 .HasForeignKey(d => d.IdStreet)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Address_Street");
+        });
+
+        modelBuilder.Entity<AddressView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("AddressVIew");
+
+            entity.Property(e => e.NameAddress).HasMaxLength(182);
         });
 
         modelBuilder.Entity<City>(entity =>
@@ -132,6 +145,16 @@ public partial class ItcompanysCrmdbContext : DbContext
                 .HasConstraintName("FK_DevTeam_Staff");
         });
 
+        modelBuilder.Entity<IssuedPassView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("IssuedPassView");
+
+            entity.Property(e => e.IdIssuedPassport).ValueGeneratedOnAdd();
+            entity.Property(e => e.NameIssuedPassport).HasMaxLength(113);
+        });
+
         modelBuilder.Entity<IssuedPassport>(entity =>
         {
             entity.HasKey(e => e.IdIssuedPassport).HasName("PK_Passport");
@@ -149,7 +172,6 @@ public partial class ItcompanysCrmdbContext : DbContext
 
             entity.ToTable("LogBook");
 
-            entity.Property(e => e.IdLogBook).ValueGeneratedNever();
             entity.Property(e => e.Description).HasMaxLength(250);
 
             entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.LogBooks)

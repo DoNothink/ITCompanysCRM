@@ -29,7 +29,7 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            textBoxes = FirstSP.Children.OfType<TextBox>();            
+            textBoxes = MainGrid.Children.OfType<TextBox>();            
         }
 
 
@@ -37,14 +37,60 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
         {
             foreach (var x in  textBoxes)
             {
+                
                 if(string.IsNullOrWhiteSpace(x.Text))
                 {
-                    MBClass.ErrorMB($"Заполните обязательные поля");
+                    MBClass.ErrorMB($"Заполните обязательное поле");
                     x.Focus();
                     break;
                 }
             }
+            if(RoleCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите роль пользователя");
+                RoleCB.Focus();
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(DateOfBirthDP.Text))
+            {
+                MBClass.ErrorMB("Введите дату рождения");
+                DateOfBirthDP.Focus();
+                return;
+            }
+            if(AddressCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите адрес");
+                AddressCB.Focus();
+                return;
+            }
+            if(String.IsNullOrWhiteSpace(DateOfIssuedDP.Text))
+            {
+                MBClass.ErrorMB("Введите дату выдачи паспорта");
+                DateOfIssuedDP.Focus();
+                return;
+            }
+            if(IssuedPassCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите кем выдан паспорт");
+                IssuedPassCB.Focus();
+                return;
+            }
+
         }
 
+        private void AddPostBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAddressBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddIssuedPassBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
