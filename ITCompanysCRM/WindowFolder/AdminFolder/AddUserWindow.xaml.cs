@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,31 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
     /// </summary>
     public partial class AddUserWindow : Window
     {
+        IEnumerable<TextBox> textBoxes;
+
         public AddUserWindow()
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBoxes = FirstSP.Children.OfType<TextBox>();            
+        }
+
+
+        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var x in  textBoxes)
+            {
+                if(string.IsNullOrWhiteSpace(x.Text))
+                {
+                    MBClass.ErrorMB($"Заполните обязательные поля");
+                    x.Focus();
+                    break;
+                }
+            }
+        }
+
     }
 }
