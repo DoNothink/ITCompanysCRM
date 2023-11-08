@@ -142,7 +142,8 @@
                 Grid.Row="3"
                 Height="35"
                 materialDesign:HintAssist.Hint="Номер телефона*"
-                MaxLength="20" />
+                MaxLength="16" 
+                TextChanged="PhoneNumberTB_TextChanged"/>
             <TextBox
                 x:Name="EmailTB"
                 Grid.Row="3"
@@ -156,13 +157,15 @@
                 Grid.Column="2"
                 Height="35"
                 materialDesign:HintAssist.Hint="Серия паспорта*"
-                MaxLength="4" />
+                MaxLength="4" 
+                PreviewTextInput="SeriesPassTB_PreviewTextInput"/>
             <TextBox
                 x:Name="NumberPassTB"
                 Grid.Row="4"
                 Height="35"
                 materialDesign:HintAssist.Hint="Номер паспорта*"
-                MaxLength="6" />
+                MaxLength="6" 
+                PreviewTextInput="NumberPassTB_PreviewTextInput"/>
             <DatePicker
                 x:Name="DateOfIssuedDP"
                 Grid.Row="4"

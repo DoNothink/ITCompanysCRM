@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ITCompanysCRM"
-    StartupUri="WindowFolder/AdminFolder/AddUserWindow.xaml">
+    StartupUri="WindowFolder/AdminFolder/AddIssuedPassWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
