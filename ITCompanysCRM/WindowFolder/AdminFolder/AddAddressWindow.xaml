@@ -4,16 +4,108 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder.AdminFolder"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Добавить адрес"
-    Width="800"
+    Width="450"
     Height="450"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="70" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Orientation="Horizontal">
+            <ComboBox
+                x:Name="CountryCB"
+                Width="225"
+                Height="35"
+                Margin="20,10,5,10"
+                materialDesign:HintAssist.Hint="Страна*"
+                DisplayMemberPath="NameCountry"
+                SelectedItem="{Binding Country}"
+                SelectedValuePath="IdCountry" />
+            <Button
+                x:Name="AddCountryBtn"
+                Width="35"
+                Height="35"
+                Click="AddCountryBtn_Click"
+                Content="+" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Orientation="Horizontal">
+            <ComboBox
+                x:Name="CityCB"
+                Width="225"
+                Height="35"
+                Margin="20,10,5,10"
+                materialDesign:HintAssist.Hint="Город*"
+                DisplayMemberPath="NameCity"
+                SelectedItem="{Binding City}"
+                SelectedValuePath="IdCity" />
+            <Button
+                x:Name="AddCityBtn"
+                Width="35"
+                Height="35"
+                Click="AddCityBtn_Click"
+                Content="+" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Orientation="Horizontal">
+            <ComboBox
+                x:Name="StreetCB"
+                Width="225"
+                Height="35"
+                Margin="20,10,5,10"
+                materialDesign:HintAssist.Hint="Улица*"
+                DisplayMemberPath="NameStreet"
+                SelectedItem="{Binding Street}"
+                SelectedValuePath="IdStreet" />
+            <Button
+                x:Name="AddStreetBtn"
+                Width="35"
+                Height="35"
+                Click="AddStreetBtn_Click"
+                Content="+" />
+        </StackPanel>
+        <TextBox
+            x:Name="HomeAddressTB"
+            Grid.Row="3"
+            Grid.Column="1"
+            materialDesign:HintAssist.Hint="Номер дома*"
+            MaxLength="5" />
+        <TextBox
+            x:Name="FlatAddressTB"
+            Grid.Row="4"
+            Grid.Column="1"
+            materialDesign:HintAssist.Hint="Номер квартиры*"
+            MaxLength="3"
+            PreviewTextInput="FlatAddressTB_PreviewTextInput" />
+        <Button
+            x:Name="AddAddressBtn"
+            Grid.Row="5"
+            Grid.Column="1"
+            Click="AddAddressBtn_Click"
+            Content="Добавить" />
     </Grid>
 </Window>
