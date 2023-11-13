@@ -104,10 +104,10 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
 
         }
 
-        // TODO: AddUser
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
             new AddUserWindow().ShowDialog();
+            LoadDG();
         }
 
 
@@ -139,3 +139,4 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         }
     }
 }
+// TODO: ИЗМЕНИТЬ ТЕМУ ВСЕГО ПРОЕКТА НА ЗЕЛЕНЫЙ/ЧЕРНЫЙ ( X5 Tech )

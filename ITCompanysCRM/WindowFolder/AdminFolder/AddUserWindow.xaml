@@ -116,7 +116,16 @@
                 HorizontalContentAlignment="Left"
                 materialDesign:HintAssist.Hint="Дата рождения*"
                 DisplayDateEnd="12.31.2005"
-                DisplayDateStart="01.01.1900" />
+                DisplayDateStart="01.01.1900">
+                <DatePicker.CalendarStyle>
+                    <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
+                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="Green" />
+                        </Style.Resources>
+                    </Style>
+                </DatePicker.CalendarStyle>
+            </DatePicker>
             <StackPanel
                 Grid.Row="2"
                 Grid.Column="2"
@@ -142,8 +151,8 @@
                 Grid.Row="3"
                 Height="35"
                 materialDesign:HintAssist.Hint="Номер телефона*"
-                MaxLength="16" 
-                TextChanged="PhoneNumberTB_TextChanged"/>
+                MaxLength="16"
+                TextChanged="PhoneNumberTB_TextChanged" />
             <TextBox
                 x:Name="EmailTB"
                 Grid.Row="3"
@@ -157,22 +166,31 @@
                 Grid.Column="2"
                 Height="35"
                 materialDesign:HintAssist.Hint="Серия паспорта*"
-                MaxLength="4" 
-                PreviewTextInput="SeriesPassTB_PreviewTextInput"/>
+                MaxLength="4"
+                PreviewTextInput="SeriesPassTB_PreviewTextInput" />
             <TextBox
                 x:Name="NumberPassTB"
                 Grid.Row="4"
                 Height="35"
                 materialDesign:HintAssist.Hint="Номер паспорта*"
-                MaxLength="6" 
-                PreviewTextInput="NumberPassTB_PreviewTextInput"/>
+                MaxLength="6"
+                PreviewTextInput="NumberPassTB_PreviewTextInput" />
             <DatePicker
                 x:Name="DateOfIssuedDP"
                 Grid.Row="4"
                 Grid.Column="1"
                 Padding="-230,0"
                 HorizontalContentAlignment="Left"
-                materialDesign:HintAssist.Hint="Дата выдачи*" />
+                materialDesign:HintAssist.Hint="Дата выдачи*">
+                <DatePicker.CalendarStyle>
+                    <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
+                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="Green" />
+                        </Style.Resources>
+                    </Style>
+                </DatePicker.CalendarStyle>
+            </DatePicker>
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="2"

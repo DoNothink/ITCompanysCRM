@@ -110,41 +110,49 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                 return;
             }
 
-            var newUser = new User()
-            {
-                LoginUser = LoginTB.Text,
-                PasswordUser = PasswordTB.Text,
-                IdRole = int.Parse(RoleCB.SelectedValue.ToString()),
-            };
-            var newStaff = new Staff()
-            {
-                SecondNameStaff = SecondNameTB.Text,
-                FirstNameStaff = FirstNameTB.Text,
-                MiddleNameStaff = MiddleNameTB.Text,
-                IdPost = int.Parse(PostCB.SelectedValue.ToString()),
-                DateOfBirthStaff = DateOfBirthDP.SelectedDate.Value,
-                IdAddress = int.Parse(AddressCB.SelectedValue.ToString()),
-                PhoneNumberStaff = PhoneNumberTB.Text,
-                EmailStaff = EmailTB.Text,
-                OthersData = OthersDataTB.Text,
-                SeriesPassport = int.Parse(SeriesPassTB.Text),
-                IdUser = newUser.IdUser,
-                NumberPassport = int.Parse(NumberPassTB.Text),
-                DateOfIssuedPassport = DateOfIssuedDP.SelectedDate.Value,
-                IdIssuedPassport = int.Parse(IssuedPassCB.SelectedValue.ToString()),
-            };
             try
             {
                 using (ItcompanysCrmdbContext db = new())
                 {
+                    var newUser = new User()
+                    {
+                        LoginUser = LoginTB.Text,
+                        PasswordUser = PasswordTB.Text,
+                        IdRole = int.Parse(RoleCB.SelectedValue.ToString()),
+                    };
                     db.Add(newUser);
-                    db.Add(newStaff);
                     db.SaveChanges();
-                    MBClass.InfoMB("Пользователь успешно создан");
+
+                    Address? getAddress = db.Addresses
+                        .FirstOrDefault(x => x.IdAddress == int.Parse(AddressCB.SelectedValue.ToString()));
+                    IssuedPassport? getIssuedPass = db.IssuedPassports
+                        .FirstOrDefault(x => x.IdIssuedPassport == int.Parse(IssuedPassCB.SelectedValue.ToString()));
+
+                    var newStaff = new Staff()
+                    {
+                        SecondNameStaff = SecondNameTB.Text,
+                        FirstNameStaff = FirstNameTB.Text,
+                        MiddleNameStaff = MiddleNameTB.Text,
+                        IdPost = int.Parse(PostCB.SelectedValue.ToString()),
+                        DateOfBirthStaff = DateOfBirthDP.SelectedDate.Value,
+                        IdAddress = getAddress.IdAddress,
+                        PhoneNumberStaff = PhoneNumberTB.Text,
+                        EmailStaff = EmailTB.Text,
+                        OthersData = OthersDataTB.Text,
+                        SeriesPassport = int.Parse(SeriesPassTB.Text),
+                        IdUser = newUser.IdUser,
+                        NumberPassport = int.Parse(NumberPassTB.Text),
+                        DateOfIssuedPassport = DateOfIssuedDP.SelectedDate.Value,
+                        IdIssuedPassport = getIssuedPass.IdIssuedPassport,
+                    };
+                        db.Add(newStaff);
+                        db.SaveChanges();
+                        MBClass.InfoMB("Пользователь успешно создан");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MBClass.ErrorMB(ex);
                 MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
                 return;
             }
