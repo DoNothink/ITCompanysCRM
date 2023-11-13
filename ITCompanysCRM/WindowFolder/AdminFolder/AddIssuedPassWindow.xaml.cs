@@ -46,6 +46,12 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                 DivisionCodeTB.Focus();
                 return;
             }
+            if(DivisionCodeTB.Text.Length <6)
+            {
+                MBClass.ErrorMB("Код подразделения должен содержать 6 цифр");
+                DivisionCodeTB.Focus();
+                return;
+            }
             var newIssuedPass = new IssuedPassport()
             {
                 IssuedPassport1 = IssuedPassTB.Text,

@@ -153,17 +153,28 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
         private void AddPostBtn_Click(object sender, RoutedEventArgs e)
         {
             new AddPostWindow().ShowDialog();
+            using (ItcompanysCrmdbContext db = new())
+            {
+                PostCB.ItemsSource = db.Posts.ToList();
+            }
         }
-        // TODO: Сделать окно добавления адреса
+
         private void AddAddressBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new AddAddressWindow().ShowDialog();
+            using (ItcompanysCrmdbContext db = new())
+            {
+                AddressCB.ItemsSource = db.AddressViews.ToList();
+            }
         }
 
-        // TODO: Сделать окно добавления Кем Выдан Паспорт
         private void AddIssuedPassBtn_Click(object sender, RoutedEventArgs e)
         {
             new AddIssuedPassWindow().ShowDialog();
+            using (ItcompanysCrmdbContext db = new())
+            {
+                IssuedPassCB.ItemsSource = db.IssuedPassViews.ToList();
+            }
         }
 
         private void SeriesPassTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -205,5 +216,3 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
         }
     }
 }
-
-// TODO: ПРОВЕРКУ НА КОЛ-ВО ВПИСАННЫХ ЦИФР СЛОВ И ТД ( у добавления подразделения )
