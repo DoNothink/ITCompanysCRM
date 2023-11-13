@@ -40,7 +40,7 @@
                 Height="35"
                 materialDesign:HintAssist.Hint="Код подразделения*"
                 MaxLength="6"
-                PreviewTextInput="DivisionCodeTB_PreviewTextInput"/>
+                PreviewTextInput="DivisionCodeTB_PreviewTextInput" />
         </StackPanel>
         <Button
             x:Name="AddIssuedPassBtn"
