@@ -17,7 +17,7 @@
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <Border Background="#1A69B2">
+        <Border Background="#30a318">
             <Label
                 Grid.Column="1"
                 HorizontalAlignment="Center"

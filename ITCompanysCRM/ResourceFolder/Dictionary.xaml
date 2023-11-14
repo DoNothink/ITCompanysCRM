@@ -58,16 +58,16 @@
         BasedOn="{StaticResource MaterialDesignOutlinedButton}"
         TargetType="{x:Type Button}">
         <Style.Resources>
-            <Color x:Key="PrimaryHueMidBrushColor">Blue</Color>
-            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Blue" />
+            <Color x:Key="PrimaryHueMidBrushColor">#30a318</Color>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#30a318" />
         </Style.Resources>
     </Style>
 
     <Style BasedOn="{StaticResource CustomMaterialDesignOutlinedButton}" TargetType="Button">
         <Setter Property="Width" Value="260" />
         <Setter Property="Height" Value="35" />
-        <Setter Property="Background" Value="#1A1EB2" />
-        <Setter Property="BorderBrush" Value="#1A1EB2" />
+        <Setter Property="Background" Value="#30a318" />
+        <Setter Property="BorderBrush" Value="#30a318" />
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Bold" />
