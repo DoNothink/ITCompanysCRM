@@ -16,11 +16,6 @@ using System.Windows.Shapes;
 
 namespace ITCompanysCRM.WindowFolder
 {
-    enum RememberState
-    {
-        Remember,
-        NotRemember
-    }
     /// <summary>
     /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>

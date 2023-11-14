@@ -31,7 +31,9 @@
             x:Name="PostTB"
             Grid.Row="1"
             Height="35"
+            materialDesign:HintAssist.Foreground="Black"
             materialDesign:HintAssist.Hint="Должность*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
             MaxLength="50" />
         <Button
             x:Name="AddPostBtn"

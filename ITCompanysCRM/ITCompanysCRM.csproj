@@ -5,12 +5,18 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>x5logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="ResourceFolder\ImageFolder\auth_bg.png" />
     <None Remove="ResourceFolder\ImageFolder\auth_bgV2.png" />
     <None Remove="ResourceFolder\ImageFolder\Excel_icon.png" />
+    <None Remove="ResourceFolder\ImageFolder\x5_mainLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="x5logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,9 +47,8 @@
     <Resource Include="ResourceFolder\ImageFolder\auth_bgV2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="ResourceFolder\ImageFolder\Excel_icon.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="ResourceFolder\ImageFolder\Excel_icon.png" />
+    <Resource Include="ResourceFolder\ImageFolder\x5_mainLogo.png" />
   </ItemGroup>
 
   <ItemGroup>

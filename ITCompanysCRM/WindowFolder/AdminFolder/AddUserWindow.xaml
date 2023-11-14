@@ -52,20 +52,26 @@
             <TextBox
                 x:Name="LoginTB"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Логин*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="30" />
             <TextBox
                 x:Name="PasswordTB"
                 Grid.Column="1"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Пароль*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="40" />
             <ComboBox
                 x:Name="RoleCB"
                 Grid.Column="2"
                 Width="260"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Роль*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 DisplayMemberPath="NameRole"
                 SelectedItem="{Binding Role}"
                 SelectedValuePath="IdRole" />
@@ -74,21 +80,27 @@
                 x:Name="SecondNameTB"
                 Grid.Row="1"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Фамилия*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="50" />
             <TextBox
                 x:Name="FirstNameTB"
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Имя*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="50" />
             <TextBox
                 x:Name="MiddleNameTB"
                 Grid.Row="1"
                 Grid.Column="2"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Отчество"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="50" />
 
             <StackPanel Grid.Row="2" Orientation="Horizontal">
@@ -97,7 +109,9 @@
                     Width="225"
                     Height="35"
                     Margin="20,10,5,10"
+                    materialDesign:HintAssist.Foreground="Black"
                     materialDesign:HintAssist.Hint="Должность*"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                     DisplayMemberPath="NamePost"
                     SelectedItem="{Binding Post}"
                     SelectedValuePath="IdPost" />
@@ -114,14 +128,16 @@
                 Grid.Column="1"
                 Padding="-230,0"
                 HorizontalContentAlignment="Left"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Дата рождения*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 DisplayDateEnd="12.31.2005"
                 DisplayDateStart="01.01.1900">
                 <DatePicker.CalendarStyle>
                     <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
                         <Style.Resources>
-                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
-                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="Green" />
+                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#30a318" />
+                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#30a318" />
                         </Style.Resources>
                     </Style>
                 </DatePicker.CalendarStyle>
@@ -135,7 +151,9 @@
                     Width="225"
                     Height="35"
                     Margin="20,10,5,10"
+                    materialDesign:HintAssist.Foreground="Black"
                     materialDesign:HintAssist.Hint="Адрес*"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                     DisplayMemberPath="NameAddress"
                     SelectedItem="{Binding Address}"
                     SelectedValuePath="IdAddress" />
@@ -150,7 +168,9 @@
                 x:Name="PhoneNumberTB"
                 Grid.Row="3"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Номер телефона*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="16"
                 TextChanged="PhoneNumberTB_TextChanged" />
             <TextBox
@@ -158,21 +178,27 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Эл.почта"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="50" />
             <TextBox
                 x:Name="SeriesPassTB"
                 Grid.Row="3"
                 Grid.Column="2"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Серия паспорта*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="4"
                 PreviewTextInput="SeriesPassTB_PreviewTextInput" />
             <TextBox
                 x:Name="NumberPassTB"
                 Grid.Row="4"
                 Height="35"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Номер паспорта*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="6"
                 PreviewTextInput="NumberPassTB_PreviewTextInput" />
             <DatePicker
@@ -181,12 +207,14 @@
                 Grid.Column="1"
                 Padding="-230,0"
                 HorizontalContentAlignment="Left"
-                materialDesign:HintAssist.Hint="Дата выдачи*">
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Дата выдачи*"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318">
                 <DatePicker.CalendarStyle>
                     <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
                         <Style.Resources>
-                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
-                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="Green" />
+                            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#30a318" />
+                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#30a318" />
                         </Style.Resources>
                     </Style>
                 </DatePicker.CalendarStyle>
@@ -200,7 +228,9 @@
                     Width="225"
                     Height="35"
                     Margin="20,10,5,10"
+                    materialDesign:HintAssist.Foreground="Black"
                     materialDesign:HintAssist.Hint="Кем выдан паспорт*"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                     DisplayMemberPath="NameIssuedPassport"
                     SelectedItem="{Binding IssuedPassportView}"
                     SelectedValuePath="IdIssuedPassport" />
@@ -218,7 +248,9 @@
                 Width="859"
                 Height="60"
                 VerticalContentAlignment="Top"
+                materialDesign:HintAssist.Foreground="Black"
                 materialDesign:HintAssist.Hint="Другая информация"
+                materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
                 MaxLength="150"
                 TextWrapping="Wrap" />
         </Grid>

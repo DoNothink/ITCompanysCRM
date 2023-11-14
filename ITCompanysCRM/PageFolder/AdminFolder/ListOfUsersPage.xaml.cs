@@ -35,7 +35,9 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         {
             using (ItcompanysCrmdbContext db = new())
             {
-                UsersDG.ItemsSource = db.Staff.ToList();
+                UsersDG.ItemsSource = db.Staff
+                    .Where(x=>x.IdUser!=GlobalClass.GlobalUser.IdUser)
+                    .ToList();
                 db.Users.Load();
                 db.Posts.Load();
             }
@@ -136,6 +138,11 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                     db.Posts.Load();
                 }
             }
+        }
+
+        private void MoreInfoMi_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
