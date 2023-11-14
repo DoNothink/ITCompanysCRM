@@ -17,6 +17,7 @@ namespace ITCompanysCRM.ClassFolder
                     IdUser = GlobalClass.GlobalUser.IdUser,
                     IdRole = GlobalClass.GlobalUser.IdRole,
                     Description = message,
+                    DateLog = DateTime.Now,
                 };
 
                 db.LogBooks.Add(logBook);

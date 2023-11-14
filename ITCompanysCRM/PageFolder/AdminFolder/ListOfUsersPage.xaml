@@ -97,8 +97,8 @@
                 <ContextMenu>
                     <MenuItem
                         x:Name="MoreInfoMi"
-                        Header="Подробная информация"
-                        Click="MoreInfoMi_Click"/>
+                        Click="MoreInfoMi_Click"
+                        Header="Подробная информация" />
                     <MenuItem
                         x:Name="EditUserMi"
                         Click="EditUserMi_Click"

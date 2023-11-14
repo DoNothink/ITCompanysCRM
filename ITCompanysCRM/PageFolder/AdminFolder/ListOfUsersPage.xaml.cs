@@ -75,6 +75,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             try
             {
                 Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
+                User? _selectedUser = _selectedStaff.IdUserNavigation;
                 if (_selectedStaff != null)
                 {
                     bool resultMB = MBClass.QuestionMB($"Вы действительно хотите " +
@@ -84,6 +85,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                         using (ItcompanysCrmdbContext db = new())
                         {
                             db.Staff.Remove(_selectedStaff);
+                            db.Users.Remove(_selectedUser);
                             db.SaveChanges();
                             MBClass.InfoMB("Пользователь удален");
                             LoadDG();
@@ -146,4 +148,4 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         }
     }
 }
-// TODO: ИЗМЕНИТЬ ТЕМУ ВСЕГО ПРОЕКТА НА ЗЕЛЕНЫЙ/ЧЕРНЫЙ ( X5 Tech )
+// TODO: need moreInfoWindow, EditUserWindow

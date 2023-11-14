@@ -13,6 +13,8 @@ public partial class LogBook
 
     public string Description { get; set; } = null!;
 
+    public DateTime DateLog { get; set; }
+
     public virtual Role IdRoleNavigation { get; set; } = null!;
 
     public virtual User IdUserNavigation { get; set; } = null!;

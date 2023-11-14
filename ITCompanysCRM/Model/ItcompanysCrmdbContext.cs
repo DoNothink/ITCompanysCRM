@@ -172,6 +172,7 @@ public partial class ItcompanysCrmdbContext : DbContext
 
             entity.ToTable("LogBook");
 
+            entity.Property(e => e.DateLog).HasColumnType("datetime");
             entity.Property(e => e.Description).HasMaxLength(250);
 
             entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.LogBooks)

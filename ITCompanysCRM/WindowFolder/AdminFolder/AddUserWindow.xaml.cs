@@ -1,15 +1,10 @@
 ﻿using ITCompanysCRM.ClassFolder;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 
@@ -119,6 +114,16 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                         PasswordUser = PasswordTB.Text,
                         IdRole = int.Parse(RoleCB.SelectedValue.ToString()),
                     };
+                    User? checkUsers = db.Users.FirstOrDefault(x => x.LoginUser == newUser.LoginUser);
+                    if(checkUsers != null)
+                    {
+                        if (newUser.LoginUser == checkUsers.LoginUser)
+                        {
+                            MBClass.ErrorMB("Пользователь с таким логином уже существует");
+                            return;
+                        }
+
+                    }
                     db.Add(newUser);
                     db.SaveChanges();
 
@@ -152,7 +157,7 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                
                 MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
                 return;
             }
