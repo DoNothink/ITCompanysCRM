@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using ITCompanysCRM.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -145,9 +146,10 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
                         DateOfIssuedPassport = DateOfIssuedDP.SelectedDate.Value,
                         IdIssuedPassport = getIssuedPass.IdIssuedPassport,
                     };
-                        db.Add(newStaff);
-                        db.SaveChanges();
-                        MBClass.InfoMB("Пользователь успешно создан");
+                    db.Add(newStaff);
+                    db.SaveChanges();
+                    MBClass.InfoMB("Пользователь успешно создан");
+                    LogClass.LogToDataBase($"Пользователь Id:{newUser.IdUser} Login: {newUser.LoginUser} успешно создан");
                 }
             }
             catch (Exception ex)
