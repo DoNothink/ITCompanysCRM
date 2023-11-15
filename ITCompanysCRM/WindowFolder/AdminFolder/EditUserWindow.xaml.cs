@@ -63,6 +63,11 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             return true;
         }
 
+        private void EditUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private static bool IsTextAllowed(string text)
         {
             return !_numberRegex.IsMatch(text);
@@ -73,10 +78,6 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             textBoxes = MainGrid.Children.OfType<TextBox>();
         }
 
-        private void EditUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void AddIssuedPassBtn_Click(object sender, RoutedEventArgs e)
         {
