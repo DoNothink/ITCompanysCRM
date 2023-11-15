@@ -90,7 +90,7 @@ namespace ITCompanysCRM.WindowFolder
 
         private void ForgotPassBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MBClass.InfoMB("Work in progress");
+            MBClass.InfoMB("Для восстановления пароля обратитесь к администратору системы");
         }
     }
 }
