@@ -94,4 +94,13 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
 
+    <Style
+        x:Key="LabelMoreInfo"
+        BasedOn="{StaticResource LabelAuth}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
 </ResourceDictionary>

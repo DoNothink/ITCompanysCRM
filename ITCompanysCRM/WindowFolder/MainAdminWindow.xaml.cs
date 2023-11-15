@@ -71,7 +71,7 @@ namespace ITCompanysCRM.WindowFolder
 
         private void LogBookBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new LogPage());
         }
     }
 }

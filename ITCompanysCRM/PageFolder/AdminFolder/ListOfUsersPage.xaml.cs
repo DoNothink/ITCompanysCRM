@@ -40,6 +40,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                     .ToList();
                 db.Users.Load();
                 db.Posts.Load();
+                db.Roles.Load();
             }
         }
 
@@ -144,7 +145,8 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
 
         private void MoreInfoMi_Click(object sender, RoutedEventArgs e)
         {
-
+            Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
+            new MoreInfoWindow(_selectedStaff).ShowDialog();
         }
     }
 }

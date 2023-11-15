@@ -124,6 +124,7 @@
                 <DataGridTextColumn Binding="{Binding EmailStaff}" Header="Эл.почта" />
                 <DataGridTextColumn Binding="{Binding PhoneNumberStaff}" Header="Номер телефона" />
                 <DataGridTextColumn Binding="{Binding IdUserNavigation.LoginUser}" Header="Логин" />
+                <DataGridTextColumn Binding="{Binding IdUserNavigation.IdRoleNavigation.NameRole}" Header="Роль" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

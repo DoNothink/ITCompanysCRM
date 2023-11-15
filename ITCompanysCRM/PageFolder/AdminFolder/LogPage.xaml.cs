@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         public LogPage()
         {
             InitializeComponent();
+            LoadDG();
+        }
+        private void LoadDG()
+        {
+            using (ItcompanysCrmdbContext db = new())
+            {
+                LogBookDG.ItemsSource = db.LogBooks.ToList();
+                db.Users.Load();
+                db.Roles.Load();
+            }
         }
     }
 }
