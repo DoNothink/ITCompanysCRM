@@ -105,7 +105,11 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         private void EditUserMi_Click(object sender, RoutedEventArgs e)
         {
             Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
-            //if (_selectedStaff != null)
+            if (_selectedStaff != null)
+            {
+                new EditUserWindow(_selectedStaff).ShowDialog();
+                LoadDG();
+            }
 
         }
 

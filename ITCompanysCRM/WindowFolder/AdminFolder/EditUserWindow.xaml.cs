@@ -21,12 +21,30 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
     public partial class EditUserWindow : Window
     {
         IEnumerable<TextBox> textBoxes;
+
         private static readonly Regex _numberRegex = new Regex("[^0-9.-]+");
-           
-        public EditUserWindow()
+
+        Staff editableStaff;
+
+        public EditUserWindow(Staff _staff)
         {
             InitializeComponent();
             LoadCB();
+            editableStaff = _staff;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBoxes = MainGrid.Children.OfType<TextBox>();
+
+            LoginTB.Text = editableStaff.IdUserNavigation.LoginUser;
+            PasswordTB.Text = editableStaff.IdUserNavigation.PasswordUser;
+            
+
+            SecondNameTB.Text = editableStaff.SecondNameStaff;
+            FirstNameTB.Text = editableStaff.FirstNameStaff;
+            MiddleNameTB.Text = editableStaff.MiddleNameStaff;
+
         }
 
         private void LoadCB()
@@ -73,10 +91,6 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             return !_numberRegex.IsMatch(text);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            textBoxes = MainGrid.Children.OfType<TextBox>();
-        }
 
 
         private void AddIssuedPassBtn_Click(object sender, RoutedEventArgs e)
