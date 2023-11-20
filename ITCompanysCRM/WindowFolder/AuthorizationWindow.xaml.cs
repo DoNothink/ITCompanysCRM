@@ -1,5 +1,6 @@
 ﻿using ITCompanysCRM.ClassFolder;
 using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,17 @@ namespace ITCompanysCRM.WindowFolder
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
+        ItcompanysCrmdbContext db = new();
+        List<User> Users { get; set; }
+
         public AuthorizationWindow()
         {
             InitializeComponent();
             GetRememberMeState();
+
+            db.Users.Load();
+            Users = db.Users.Local.ToList();
+
         }
 
         private void GetRememberMeState()
@@ -49,7 +57,7 @@ namespace ITCompanysCRM.WindowFolder
             }
             using (ItcompanysCrmdbContext db = new())
             {
-                var user = db.Users.FirstOrDefault(x => x.LoginUser == LoginTB.Text);
+                var user = this.Users.FirstOrDefault(x=>x.LoginUser == LoginTB.Text); 
                 if (user == null)
                 {
                     MBClass.ErrorMB("Введен неверный логин или пароль");

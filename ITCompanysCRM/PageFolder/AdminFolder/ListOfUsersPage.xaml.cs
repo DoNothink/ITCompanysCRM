@@ -154,4 +154,4 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         }
     }
 }
-// TODO: need moreInfoWindow, EditUserWindow
+// TODO: need EditUserWindow

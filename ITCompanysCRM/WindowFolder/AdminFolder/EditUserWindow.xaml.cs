@@ -39,12 +39,21 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
 
             LoginTB.Text = editableStaff.IdUserNavigation.LoginUser;
             PasswordTB.Text = editableStaff.IdUserNavigation.PasswordUser;
-            
+
 
             SecondNameTB.Text = editableStaff.SecondNameStaff;
             FirstNameTB.Text = editableStaff.FirstNameStaff;
             MiddleNameTB.Text = editableStaff.MiddleNameStaff;
 
+            DateOfBirthDP.Text = editableStaff.DateOfBirthStaff.ToShortDateString();
+            PhoneNumberTB.Text = editableStaff.PhoneNumberStaff;
+            EmailTB.Text = editableStaff.EmailStaff;
+
+            SeriesPassTB.Text = editableStaff.SeriesPassport.ToString();
+            NumberPassTB.Text = editableStaff.NumberPassport.ToString();
+            DateOfIssuedDP.Text = editableStaff.DateOfIssuedPassport.ToShortDateString();
+
+            OthersDataTB.Text = editableStaff.OthersData;
         }
 
         private void LoadCB()
