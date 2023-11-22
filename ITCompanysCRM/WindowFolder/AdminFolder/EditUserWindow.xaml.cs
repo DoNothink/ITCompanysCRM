@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITCompanysCRM.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,7 +93,98 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
 
         private void EditUserBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckTextBoxes()) return;
 
+            if (RoleCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите роль пользователя");
+                RoleCB.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(DateOfBirthDP.Text))
+            {
+                MBClass.ErrorMB("Введите дату рождения");
+                DateOfBirthDP.Focus();
+                return;
+            }
+            if (AddressCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите адрес");
+                AddressCB.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(DateOfIssuedDP.Text))
+            {
+                MBClass.ErrorMB("Введите дату выдачи паспорта");
+                DateOfIssuedDP.Focus();
+                return;
+            }
+            if (IssuedPassCB.SelectedIndex == -1)
+            {
+                MBClass.ErrorMB("Выберите кем выдан паспорт");
+                IssuedPassCB.Focus();
+                return;
+            }
+
+            try
+            {
+                using (ItcompanysCrmdbContext db = new())
+                {
+                    var editUser = db.Users.FirstOrDefault(x => x.IdUser == editableStaff.IdUser);
+                    if(editUser != null) 
+                    {
+                        editUser.IdUser = editableStaff.IdUserNavigation.IdUser;
+                        editUser.LoginUser = LoginTB.Text;
+                        editUser.PasswordUser = PasswordTB.Text;
+                        editUser.IdRole = int.Parse(RoleCB.SelectedValue.ToString());
+                        User? checkUsers = db.Users.Where(x => x.LoginUser != editUser.LoginUser).FirstOrDefault(x => x.LoginUser == editUser.LoginUser);
+                        if (checkUsers != null)
+                        {
+                            if (editUser.LoginUser == checkUsers.LoginUser)
+                            {
+                                MBClass.ErrorMB("Пользователь с таким логином уже существует");
+                                return;
+                            }
+                        }
+                        db.SaveChanges();
+                    };
+
+                    Address? getAddress = db.Addresses
+                        .FirstOrDefault(x => x.IdAddress == int.Parse(AddressCB.SelectedValue.ToString()));
+                    IssuedPassport? getIssuedPass = db.IssuedPassports
+                        .FirstOrDefault(x => x.IdIssuedPassport == int.Parse(IssuedPassCB.SelectedValue.ToString()));
+
+                    var editStaff = db.Staff.FirstOrDefault(x => x.IdStaff == editableStaff.IdStaff);
+                    if (editStaff != null)
+                    {
+                        editStaff.IdStaff = editableStaff.IdStaff;
+                        editStaff.SecondNameStaff = SecondNameTB.Text;
+                        editStaff.FirstNameStaff = FirstNameTB.Text;
+                        editStaff.MiddleNameStaff = MiddleNameTB.Text;
+                        editStaff.IdPost = int.Parse(PostCB.SelectedValue.ToString());
+                        editStaff.DateOfBirthStaff = DateOfBirthDP.SelectedDate.Value;
+                        editStaff.IdAddress = getAddress.IdAddress;
+                        editStaff.PhoneNumberStaff = PhoneNumberTB.Text;
+                        editStaff.EmailStaff = EmailTB.Text;
+                        editStaff.OthersData = OthersDataTB.Text;
+                        editStaff.SeriesPassport = int.Parse(SeriesPassTB.Text);
+                        editStaff.IdUser = editUser.IdUser;
+                        editStaff.NumberPassport = int.Parse(NumberPassTB.Text);
+                        editStaff.DateOfIssuedPassport = DateOfIssuedDP.SelectedDate.Value;
+                        editStaff.IdIssuedPassport = getIssuedPass.IdIssuedPassport;
+                        db.SaveChanges();
+
+                        MBClass.InfoMB("Пользователь успешно изменен");
+                        LogClass.LogToDataBase($"Пользователь Id:{editUser.IdUser} Login: {editUser.LoginUser} был изменен");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+                return;
+            }
         }
 
         private static bool IsTextAllowed(string text)

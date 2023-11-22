@@ -126,6 +126,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             {
                 UsersDG.ItemsSource = db.Staff
                     .Where(x => x.SecondNameStaff.StartsWith(SearchTB.Text) || x.FirstNameStaff.StartsWith(SearchTB.Text))
+                    .Where(x => x.IdUser != GlobalClass.GlobalUser.IdUser)
                     .ToList();
                 db.Users.Load();
                 db.Posts.Load();
@@ -140,6 +141,7 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
                 {
                     UsersDG.ItemsSource = db.Staff
                         .Where(x => x.IdPost == int.Parse(PostCB.SelectedValue.ToString()))
+                        .Where(x => x.IdUser != GlobalClass.GlobalUser.IdUser)
                         .ToList();
                     db.Users.Load();
                     db.Posts.Load();
