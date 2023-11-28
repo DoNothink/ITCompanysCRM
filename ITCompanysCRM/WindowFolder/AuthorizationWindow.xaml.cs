@@ -89,7 +89,8 @@ namespace ITCompanysCRM.WindowFolder
                         this.Close();
                         break;
                     case 2:
-
+                        new MainManagerWindow().Show();
+                        this.Close();
                         break;
 
                 }

@@ -1,4 +1,5 @@
 ﻿using ITCompanysCRM.ClassFolder;
+using ITCompanysCRM.PageFolder.ManagerFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace ITCompanysCRM.WindowFolder
         // TODO: Список сотрудников ( just Read )
         private void ListOfStaffBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListOfStaffPage());
         }
 
         // TODO: Список проектов ( C R U D )
