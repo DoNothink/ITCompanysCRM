@@ -19,5 +19,9 @@ public partial class Project
 
     public int IdStatusOfProject { get; set; }
 
+    public int IdClient { get; set; }
+
+    public virtual Client IdClientNavigation { get; set; } = null!;
+
     public virtual StatusOfProject IdStatusOfProjectNavigation { get; set; } = null!;
 }
