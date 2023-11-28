@@ -68,7 +68,6 @@ namespace ITCompanysCRM.WindowFolder.AdminFolder
             return !_numberRegex.IsMatch(text);
         }
 
-        // TODO: Добавление работает.( надо дотестить )
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!CheckTextBoxes()) return;

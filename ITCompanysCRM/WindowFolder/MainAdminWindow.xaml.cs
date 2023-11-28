@@ -64,11 +64,6 @@ namespace ITCompanysCRM.WindowFolder
             }
         }
 
-        private void AddUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void LogBookBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new LogPage());

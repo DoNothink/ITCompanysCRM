@@ -101,7 +101,6 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             }
         }
 
-        // TODO: EditUser
         private void EditUserMi_Click(object sender, RoutedEventArgs e)
         {
             Staff? _selectedStaff = UsersDG.SelectedItem as Staff;
@@ -156,4 +155,3 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
         }
     }
 }
-// TODO: need EditUserWindow
