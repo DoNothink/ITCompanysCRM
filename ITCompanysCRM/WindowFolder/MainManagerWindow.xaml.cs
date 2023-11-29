@@ -48,7 +48,7 @@ namespace ITCompanysCRM.WindowFolder
         // TODO: Список клиентов ( C R U D )
         private void ListOfClientsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListOfClientPage());
         }
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
