@@ -96,7 +96,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdClient}" Header="№П/П" />
                 <DataGridTextColumn Binding="{Binding IdTypeOfClientNavigation.NameTypeOfClient}" Header="Тип" />
-                <DataGridTextColumn Binding="{Binding NameTypeOfClient}" Header="Название" />
+                <DataGridTextColumn Binding="{Binding NameClient}" Header="Название" />
                 <DataGridTextColumn Binding="{Binding EmailClient}" Header="Эл.почта" />
                 <DataGridTextColumn Binding="{Binding PhoneNumberClient}" Header="Номер телефона" />
                 <DataGridTextColumn Binding="{Binding ServicesClient}" Header="Услуги клиента" />

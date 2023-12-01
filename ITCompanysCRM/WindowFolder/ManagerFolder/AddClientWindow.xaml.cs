@@ -28,7 +28,7 @@ namespace ITCompanysCRM.WindowFolder.ManagerFolder
             LoadCB();
         }
 
-        // TODO: Check addCLient
+        // TODO: Check addCLient ( Need PhoneNumber validation )
         private void AddClientBtn_Click(object sender, RoutedEventArgs e)
         {
             if(TypeOfClientCB.SelectedIndex == -1)
@@ -43,7 +43,7 @@ namespace ITCompanysCRM.WindowFolder.ManagerFolder
             {
                 try
                 {
-                    Client newClient = new()
+                    var newClient = new Client()
                     {
                         IdTypeOfClient = int.Parse(TypeOfClientCB.SelectedValue.ToString()),
                         NameClient = NameClientTB.Text,
@@ -59,8 +59,9 @@ namespace ITCompanysCRM.WindowFolder.ManagerFolder
 
                     this.Close();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    MBClass.ErrorMB(ex);
                     MBClass.ErrorMB("Произошла ошибка. Повторите попытку позже");
                 }
             }

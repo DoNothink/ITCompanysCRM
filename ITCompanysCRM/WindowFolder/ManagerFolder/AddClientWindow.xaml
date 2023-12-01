@@ -38,8 +38,8 @@
             materialDesign:HintAssist.Hint="Тип клиента*"
             materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
             DisplayMemberPath="NameTypeOfClient"
-            SelectedItem="{Binding Country}"
-            SelectedValuePath="IdCountry" />
+            SelectedItem="{Binding TypeOfClient}"
+            SelectedValuePath="IdTypeOfClient" />
 
         <TextBox
             x:Name="NameClientTB"
