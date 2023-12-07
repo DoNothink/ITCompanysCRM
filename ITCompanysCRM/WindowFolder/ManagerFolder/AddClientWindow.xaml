@@ -61,7 +61,9 @@
             Grid.Column="1"
             materialDesign:HintAssist.Foreground="Black"
             materialDesign:HintAssist.Hint="Номер телефона*"
-            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
+            MaxLength="16"
+            TextChanged="PhoneNumberClientTB_TextChanged" />
         <TextBox
             x:Name="ServicesClientTB"
             Grid.Row="4"
