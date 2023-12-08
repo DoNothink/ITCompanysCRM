@@ -89,10 +89,22 @@
         </Border>
 
         <DataGrid
-            x:Name="UsersDG"
+            x:Name="ClientDG"
             Grid.Row="1"
             AutoGenerateColumns="False"
             IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        x:Name="UpdateMi"
+                        Click="UpdateMi_Click"
+                        Header="Изменить" />
+                    <MenuItem
+                        x:Name="DeleteMi"
+                        Click="DeleteMi_Click"
+                        Header="Удалить" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdClient}" Header="№П/П" />
                 <DataGridTextColumn Binding="{Binding IdTypeOfClientNavigation.NameTypeOfClient}" Header="Тип" />

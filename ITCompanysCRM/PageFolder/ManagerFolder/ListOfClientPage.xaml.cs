@@ -1,4 +1,5 @@
-﻿using ITCompanysCRM.WindowFolder.ManagerFolder;
+﻿using ITCompanysCRM.ClassFolder;
+using ITCompanysCRM.WindowFolder.ManagerFolder;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,7 @@ namespace ITCompanysCRM.PageFolder.ManagerFolder
         {
             using (ItcompanysCrmdbContext db = new())
             {
-                UsersDG.ItemsSource = db.Clients.ToList();
+                ClientDG.ItemsSource = db.Clients.ToList();
                 db.TypeOfClients.Load();
             }
         }
@@ -81,5 +82,32 @@ namespace ITCompanysCRM.PageFolder.ManagerFolder
             }
         }
 
+        private void UpdateMi_Click(object sender, RoutedEventArgs e)
+        {
+            Client? selectedClient = ClientDG.SelectedItem as Client;
+            if(selectedClient != null)
+                new EditClientWindow(selectedClient).ShowDialog();
+            LoadDG();
+        }
+
+        private void DeleteMi_Click(object sender, RoutedEventArgs e)
+        {
+            using (ItcompanysCrmdbContext db = new())
+            {
+                Client? selectedClient = ClientDG.SelectedItem as Client;
+                if(selectedClient != null)
+                {
+                    bool resultMB = MBClass.QuestionMB($"Вы действительно хотите удалить клиента {selectedClient.NameClient}?");
+                    if(resultMB)
+                    {
+                        db.Clients.Remove(selectedClient);
+                        db.SaveChanges();
+                        MBClass.InfoMB($"Клиент {selectedClient.NameClient} удален");
+                        LogClass.LogToDataBase($"Клиент {selectedClient.NameClient} удален пользователем Id: {GlobalClass.GlobalUser.IdUser}");
+                    }
+                }
+            }
+            LoadDG();
+        }
     }
 }
