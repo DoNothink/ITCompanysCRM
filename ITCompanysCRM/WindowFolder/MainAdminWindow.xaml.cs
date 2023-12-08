@@ -1,5 +1,6 @@
 ﻿using ITCompanysCRM.ClassFolder;
 using ITCompanysCRM.PageFolder.AdminFolder;
+using ITCompanysCRM.PageFolder.ManagerFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace ITCompanysCRM.WindowFolder
     /// </summary>
     public partial class MainAdminWindow : Window
     {
+        // TODO: Добавлять все фреймы от менеджера. Готово: Клиенты,
         public MainAdminWindow()
         {
             InitializeComponent();
@@ -67,6 +69,11 @@ namespace ITCompanysCRM.WindowFolder
         private void LogBookBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new LogPage());
+        }
+
+        private void ListOfClientsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ListOfClientPage());
         }
     }
 }

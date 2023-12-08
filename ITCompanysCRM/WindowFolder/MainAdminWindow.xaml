@@ -58,6 +58,14 @@
                         Content="Список пользователей" />
 
                     <Button
+                        x:Name="ListOfClientsBtn"
+                        Margin="0"
+                        Background="#30a318"
+                        BorderBrush="Transparent"
+                        Click="ListOfClientsBtn_Click"
+                        Content="Список клиентов" />
+
+                    <Button
                         x:Name="LogBookBtn"
                         Margin="0"
                         Background="#30a318"

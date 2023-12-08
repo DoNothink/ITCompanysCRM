@@ -37,10 +37,10 @@ namespace ITCompanysCRM.PageFolder.AdminFolder
             {
                 UsersDG.ItemsSource = db.Staff
                     .Where(x=>x.IdUser!=GlobalClass.GlobalUser.IdUser)
+                    .Include(u=>u.IdUserNavigation)
+                        .ThenInclude(r=>r.IdRoleNavigation)
+                    .Include(u=>u.IdPostNavigation)
                     .ToList();
-                db.Users.Load();
-                db.Posts.Load();
-                db.Roles.Load();
             }
         }
 

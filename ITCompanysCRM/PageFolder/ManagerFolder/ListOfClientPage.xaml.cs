@@ -51,7 +51,14 @@ namespace ITCompanysCRM.PageFolder.ManagerFolder
 
         private void ExcelBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                ExcelClass.ToExcelFile(ClientDG, "Список клиентов");
+            }
+            catch (Exception)
+            {
+                MBClass.ErrorMB("Произошла ошибка. Повторите попытку");
+            }
         }
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)

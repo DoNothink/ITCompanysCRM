@@ -27,7 +27,6 @@ namespace ITCompanysCRM.WindowFolder
             FioLabel.Content = GetFio();
         }
 
-        // TODO: Список сотрудников ( just Read )
         private void ListOfStaffBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ListOfStaffPage());
@@ -36,7 +35,7 @@ namespace ITCompanysCRM.WindowFolder
         // TODO: Список проектов ( C R U D )
         private void ListOfProjectsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ListOfProjectsPage());
         }
 
         // TODO: Список команд ( C R U D )
