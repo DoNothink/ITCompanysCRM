@@ -1,4 +1,5 @@
 ﻿using ITCompanysCRM.ClassFolder;
+using ITCompanysCRM.Model;
 using ITCompanysCRM.WindowFolder.ManagerFolder;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,7 +33,15 @@ namespace ITCompanysCRM.PageFolder.ManagerFolder
 
         private void TypeOfClientCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (TypeOfClientCB.SelectedIndex != -1)
+            {
+                using (ItcompanysCrmdbContext db = new())
+                {
+                    ClientDG.ItemsSource = db.Clients
+                        .Where(x => x.IdTypeOfClient == int.Parse(TypeOfClientCB.SelectedValue.ToString()))
+                        .ToList();
+                }
+            }
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
@@ -63,7 +72,17 @@ namespace ITCompanysCRM.PageFolder.ManagerFolder
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (SearchTB.Text == string.Empty)
+            {
+                LoadDG();
+                return;
+            }
+            using (ItcompanysCrmdbContext db = new())
+            {
+                ClientDG.ItemsSource = db.Clients
+                    .Where(x => x.NameClient.StartsWith(SearchTB.Text))
+                    .ToList();
+            }
         }
 
         private void AddClient_Click(object sender, RoutedEventArgs e)
