@@ -23,5 +23,15 @@ namespace ITCompanysCRM.WindowFolder.ManagerFolder
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddProjectBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

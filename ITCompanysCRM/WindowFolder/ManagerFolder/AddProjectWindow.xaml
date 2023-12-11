@@ -4,10 +4,80 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ITCompanysCRM.WindowFolder.ManagerFolder"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="AddProjectWindow"
-    Width="800"
-    Height="450"
+    Title="Добавить проект"
+    Width="450"
+    Height="520"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid />
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="70" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ComboBox
+            x:Name="TypeOfClientCB"
+            Grid.Column="1"
+            Width="260"
+            Height="35"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Тип клиента*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
+            DisplayMemberPath="NameTypeOfClient"
+            SelectedItem="{Binding TypeOfClient}"
+            SelectedValuePath="IdTypeOfClient" />
+
+        <TextBox
+            x:Name="NameClientTB"
+            Grid.Row="1"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Название*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+        <TextBox
+            x:Name="EmailClientTB"
+            Grid.Row="2"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Эл.почта"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+        <TextBox
+            x:Name="PhoneNumberClientTB"
+            Grid.Row="3"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Номер телефона*"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
+            MaxLength="16"
+            TextChanged="PhoneNumberClientTB_TextChanged" />
+        <TextBox
+            x:Name="ServicesClientTB"
+            Grid.Row="4"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Услуги клиента*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+
+        <Button
+            x:Name="AddProjectBtn"
+            Grid.Row="6"
+            Grid.Column="1"
+            Click="AddProjectBtn_Click"
+            Content="Добавить" />
+    </Grid>
 </Window>
