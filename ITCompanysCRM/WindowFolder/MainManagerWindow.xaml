@@ -64,13 +64,6 @@
                         Click="ListOfProjectsBtn_Click"
                         Content="Список проектов" />
                     <Button
-                        x:Name="ListOfTeamsBtn"
-                        Margin="0"
-                        Background="#30a318"
-                        BorderBrush="Transparent"
-                        Click="ListOfTeamsBtn_Click"
-                        Content="Список команд" />
-                    <Button
                         x:Name="ListOfClientsBtn"
                         Margin="0"
                         Background="#30a318"

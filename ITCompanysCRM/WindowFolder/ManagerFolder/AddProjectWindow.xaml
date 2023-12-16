@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Добавить проект"
     Width="450"
-    Height="520"
+    Height="550"
     Loaded="Window_Loaded"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -27,55 +27,94 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
+        <TextBox
+            x:Name="NameProjectTB"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Название проекта*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+        <TextBox
+            x:Name="PurposeProjectTB"
+            Grid.Row="1"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Цель проекта"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+        <DatePicker
+            x:Name="StartDevDP"
+            Grid.Row="2"
+            Grid.Column="1"
+            Padding="-230,0"
+            HorizontalContentAlignment="Left"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Дата начала разработки*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318">
+            <DatePicker.CalendarStyle>
+                <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#30a318" />
+                        <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#30a318" />
+                    </Style.Resources>
+                </Style>
+            </DatePicker.CalendarStyle>
+        </DatePicker>
+        <DatePicker
+            x:Name="FinishDevDP"
+            Grid.Row="3"
+            Grid.Column="1"
+            Padding="-230,0"
+            HorizontalContentAlignment="Left"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Дата окончания разработки*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318">
+            <DatePicker.CalendarStyle>
+                <Style BasedOn="{StaticResource MaterialDesignCalendarPortrait}" TargetType="Calendar">
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#30a318" />
+                        <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#30a318" />
+                    </Style.Resources>
+                </Style>
+            </DatePicker.CalendarStyle>
+        </DatePicker>
+        <TextBox
+            x:Name="DevBudgetTB"
+            Grid.Row="4"
+            Grid.Column="1"
+            materialDesign:HintAssist.Foreground="Black"
+            materialDesign:HintAssist.Hint="Бюджет проекта*"
+            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+
         <ComboBox
-            x:Name="TypeOfClientCB"
+            x:Name="StatusCB"
+            Grid.Row="5"
             Grid.Column="1"
             Width="260"
             Height="35"
             materialDesign:HintAssist.Foreground="Black"
-            materialDesign:HintAssist.Hint="Тип клиента*"
+            materialDesign:HintAssist.Hint="Статус проекта*"
             materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
-            DisplayMemberPath="NameTypeOfClient"
-            SelectedItem="{Binding TypeOfClient}"
-            SelectedValuePath="IdTypeOfClient" />
-
-        <TextBox
-            x:Name="NameClientTB"
-            Grid.Row="1"
+            DisplayMemberPath="NameStatusOfProject"
+            SelectedItem="{Binding StatusOfProject}"
+            SelectedValuePath="IdStatusOfProject" />
+        <ComboBox
+            x:Name="ClientCB"
+            Grid.Row="6"
             Grid.Column="1"
+            Width="260"
+            Height="35"
             materialDesign:HintAssist.Foreground="Black"
-            materialDesign:HintAssist.Hint="Название*"
-            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
-        <TextBox
-            x:Name="EmailClientTB"
-            Grid.Row="2"
-            Grid.Column="1"
-            materialDesign:HintAssist.Foreground="Black"
-            materialDesign:HintAssist.Hint="Эл.почта"
-            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
-        <TextBox
-            x:Name="PhoneNumberClientTB"
-            Grid.Row="3"
-            Grid.Column="1"
-            materialDesign:HintAssist.Foreground="Black"
-            materialDesign:HintAssist.Hint="Номер телефона*"
-            materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"
+            materialDesign:HintAssist.Hint="Клиент*"
             materialDesign:TextFieldAssist.UnderlineBrush="#30a318"
-            MaxLength="16"
-            TextChanged="PhoneNumberClientTB_TextChanged" />
-        <TextBox
-            x:Name="ServicesClientTB"
-            Grid.Row="4"
-            Grid.Column="1"
-            materialDesign:HintAssist.Foreground="Black"
-            materialDesign:HintAssist.Hint="Услуги клиента*"
-            materialDesign:TextFieldAssist.UnderlineBrush="#30a318" />
+            DisplayMemberPath="NameClient"
+            SelectedItem="{Binding Client}"
+            SelectedValuePath="IdClient" />
 
         <Button
             x:Name="AddProjectBtn"
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="1"
             Click="AddProjectBtn_Click"
             Content="Добавить" />

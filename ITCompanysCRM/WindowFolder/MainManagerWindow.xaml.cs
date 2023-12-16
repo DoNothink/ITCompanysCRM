@@ -38,12 +38,6 @@ namespace ITCompanysCRM.WindowFolder
             MainFrame.Navigate(new ListOfProjectsPage());
         }
 
-        // TODO: Список команд ( C R U D )
-        private void ListOfTeamsBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ListOfClientsBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ListOfClientPage());
